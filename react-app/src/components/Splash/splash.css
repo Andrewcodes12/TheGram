@@ -3,11 +3,11 @@ body{
 }
 
 .splashImg{
-    width: 350px;
-    height:700px;
     display: inline-block;
     background-image: url("../public/Screen\ Shot\ 2021-11-15\ at\ 6.11.24\ PM.png");
-    background-size: contain;
+    background-size: 110%;
+    width: 350px;
+    height:700px;
     background-repeat: no-repeat;
     background-position: center;
 }

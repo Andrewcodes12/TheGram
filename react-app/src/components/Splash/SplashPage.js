@@ -44,8 +44,8 @@ const SplashPage = () => {
                 <div key={ind}>{error}</div>
                 ))}
             </div>
-            <div>
-                <label htmlFor='email'>Email</label>
+            <h3 className="appName">The Gram</h3>
+            <div className="emailInput">
                 <input
                 name='email'
                 type='text'
@@ -54,8 +54,7 @@ const SplashPage = () => {
                 onChange={updateEmail}
                 />
             </div>
-            <div>
-                <label htmlFor='password'>Password</label>
+            <div className="passwordInput">
                 <input
                 name='password'
                 type='password'
@@ -63,7 +62,7 @@ const SplashPage = () => {
                 value={password}
                 onChange={updatePassword}
                 />
-        <button type='submit'>Login</button>
+        <button type='submit' className="loginBtn">Login</button>
         </div>
         </form>
             </div>
