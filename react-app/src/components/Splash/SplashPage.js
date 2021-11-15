@@ -1,30 +1,73 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { login } from '../../store/session';
 import './splash.css'
 
 
-
 const SplashPage = () => {
-    //code out an instagram splash page
-// Language: javascript
-// splash page should have, email/username input field
-// password input field
-// login button
-// sign up button
-// demo login button
+    const [errors, setErrors] = useState([]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
 
-//import functioanlity for login signup and demo login
+    const onLogin = async (e) => {
+      e.preventDefault();
+      const data = await dispatch(login(email, password));
+      if (data) {
+        setErrors(data);
+      }
+    };
 
+    const updateEmail = (e) => {
+      setEmail(e.target.value);
+    };
 
+    const updatePassword = (e) => {
+      setPassword(e.target.value);
+    };
+
+    if (user) {
+      return <Redirect to='/feed' />;
+    }
 
     return (
         <div>
             <div className="splash-page">
             <div className="splashImg"></div>
-            <input type="text" placeholder="username or email" />
-            <input type="password" placeholder="password" />
-            <button>login</button>
-            <button>sign up</button>
-            <button>demo login</button>
+            <div className="loginContainer">
+                <div className="login">
+                <form onSubmit={onLogin}>
+                <div>
+                {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+                ))}
+            </div>
+            <div>
+                <label htmlFor='email'>Email</label>
+                <input
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+                />
+            </div>
+            <div>
+                <label htmlFor='password'>Password</label>
+                <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+                />
+        <button type='submit'>Login</button>
+        </div>
+        </form>
+            </div>
+            </div>
             </div>
         </div>
     )
