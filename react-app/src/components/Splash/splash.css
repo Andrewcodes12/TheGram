@@ -105,10 +105,46 @@ input:focus{
    margin-left: 10px;
    margin-right: 10px;
 }
+
 .orContainer .line{
     flex: 1;
     height: 1px;
     background-color: rgb(212, 212, 212);
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.demoBtn{
+    background-color: #52b0eb;
+    width:  75%;
+    height: 25px;
+    color: white;
+    margin: 10px auto 0px;
+    border-radius: 7px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.demoBtn:hover{
+    background-color: #003cff;
+}
+
+.dontAccount{
+    display: inline;
+    font-size: 16px;
+    color: rgb(34, 34, 34);
+    padding-right: 5px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.register{
+    display: inline;
+    font-size: 16px;
+    color: #5562f3;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.registerContainer{
+    margin-top: 175px;
 }

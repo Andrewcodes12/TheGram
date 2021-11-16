@@ -78,19 +78,20 @@ const SplashPage = () => {
           <div className="or"> OR </div>
           <div class="line">    </div>
         </div>
-        <div className="demoBtn">
+        <div className="demoBtnn">
         {!user?
         <button className="demoBtn" onClick={demoLogin}>Demo Login</button>
         : null}
-        <div>
-          <p className="dontAccount">Dont have an account?</p>
-          <a className="register" href="/sign-up">Register</a>
-          </div>
-
         </div>
         </form>
+        <div className="registerContainer">
+          <p className="dontAccount">Don't have an account?</p>
+          <a className="register" href="/sign-up">Register</a>
+          </div>
             </div>
+
             </div>
+
             </div>
         </div>
     )
