@@ -13,9 +13,9 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    db.relationship('Like', backref='post', lazy='dynamic',cascade = "all,delete")
-    db.relationship('Comment', backref='post', lazy='dynamic',cascade = "all,delete")
-
+    # like= db.relationship('Like', backref='post',cascade = "all,delete")
+    # comment_post=db.relationship('Comment', backref='post',cascade = "all,delete")
+    # see_posts=db.relationship('User', backref='user_post',cascade = "all,delete")
 
     def to_dict(self):
         return {

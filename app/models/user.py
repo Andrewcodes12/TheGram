@@ -2,7 +2,9 @@ from sqlalchemy.orm import backref
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from datetime import datetime
 
+now = datetime.now()
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -13,13 +15,14 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     profileImage=db.Column( db.String, default='http://clipart-library.com/new_gallery/280-2806732_png-file-svg-default-profile-picture-png.png',nullable=False)
 
-    likes=db.relationship('Like',cascade = "all,delete", backref='user')
-    comment=db.relationship('Comment',cascade = "all,delete", backref='user')
-    post=db.relationship('Post',cascade = "all,delete", backref='user')
+    # likes=db.relationship('Like',cascade = "all,delete", backref='user_like')
+    # comment_user=db.relationship('Comment',cascade = "all,delete", backref='user_name')
+    user_post=db.relationship('Post',cascade = "all,delete", backref='see_posts')
+
     following = db.relationship(
-    'User', lambda: following,
-    primaryjoin=lambda: User.id == following.c.user_id,
-    secondaryjoin=lambda: User.id == following.c.following_id,
+    'User', lambda: user_following,
+    primaryjoin=lambda: User.id == user_following.c.userId,
+    secondaryjoin=lambda: User.id == user_following.c.followingId,
     backref='user',
     cascade='all, delete'
     )
@@ -51,3 +54,10 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profileImage':self.profileImage,
         }
+
+user_following = db.Table(
+    'user_following',
+    db.Column('userId', db.Integer, db.ForeignKey(User.id), primary_key=True),
+    db.Column('followingId', db.Integer,
+              db.ForeignKey(User.id), primary_key=True),
+)

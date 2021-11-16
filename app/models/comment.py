@@ -9,8 +9,8 @@ class Comment(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     postId = db.Column(db.Integer, db.ForeignKey('posts.id'))
 
-    userId= db.relationship('User', backref='comments',cascade = "all,delete")
-    postId= db.relationship('Post', backref='comments',cascade = "all,delete")
+    # user_name= db.relationship('User', backref='comment_user',cascade = "all,delete")
+    # post= db.relationship('Post', backref='comment_post',cascade = "all,delete")
 
 
     def to_dict(self):
