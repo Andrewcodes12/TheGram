@@ -1,4 +1,6 @@
+from sqlalchemy.orm import backref
 from .db import db
+
 
 
 class Post(db.Model):
@@ -22,5 +24,5 @@ class Post(db.Model):
             'caption': self.caption,
             'likes': self.likes,
             'created_at': self.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-            'userId': self.userId,
+            'userId': self.userId
         }
