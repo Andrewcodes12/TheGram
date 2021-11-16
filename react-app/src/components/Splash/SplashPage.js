@@ -87,7 +87,7 @@ const SplashPage = () => {
         </form>
         <div className="registerContainer">
           <p className="dontAccount">Don't have an account?</p>
-          <a className="register" href="/sign-up">Register</a>
+          <a className="register" href="/sign-up">Sign up</a>
           </div>
             </div>
 
