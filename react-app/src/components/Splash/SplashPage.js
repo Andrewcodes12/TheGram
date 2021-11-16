@@ -73,6 +73,11 @@ const SplashPage = () => {
                 />
         </div>
         <button type='submit' className="loginBtn">Login</button>
+        <div className="orContainer">
+          <div class="line">    </div>
+          <div className="or"> OR </div>
+          <div class="line">    </div>
+        </div>
         <div className="demoBtn">
         {!user?
         <button className="demoBtn" onClick={demoLogin}>Demo Login</button>

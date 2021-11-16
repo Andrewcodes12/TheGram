@@ -93,3 +93,22 @@ input:focus{
 .loginBtn:hover{
     background-color: #003cff;
 }
+
+.orContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.or{
+   color: rgb(212, 212, 212);
+   margin-left: 10px;
+   margin-right: 10px;
+}
+.orContainer .line{
+    flex: 1;
+    height: 1px;
+    background-color: rgb(212, 212, 212);
+    margin-left: 10px;
+    margin-right: 10px;
+}
