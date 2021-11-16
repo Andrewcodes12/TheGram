@@ -2,9 +2,40 @@ body{
     background-color:rgba(var(--b3f,250,250,250),1);;
 }
 
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+input{
+    border:none;
+    background-color: rgb(0 0 0 / 5%);
+    padding:10px;
+    font-size: 12px;
+    box-sizing: border-box;
+    width: 75%;
+    border-radius: 5px;
+    border-color: black;
+    transition: border-color .2s ease-in-out;
+    color: rgba(var(--i1d,38,38,38),1);
+    font: apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input:focus{
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+    outline-color: white;
+}
+
 .splashImg{
     display: inline-block;
-    background-image: url("../public/Screen\ Shot\ 2021-11-15\ at\ 6.11.24\ PM.png");
+    background-image: url("../public/SplashPage.png");
     background-size: 454px 618px;
     width: 350px;
     height:618px;
@@ -29,7 +60,6 @@ body{
 }
 
 .login{
-  -webkit-box-align: center;
   align-items:center;
   align-self: center;
   background-color: rgba(var(--d87,255,255,255),1);
@@ -40,5 +70,26 @@ body{
   max-width: 300px;
   width: 300px;
   height: 450px;
+  text-align: center;
 
+}
+
+.emailInput{
+    margin-bottom:10px;
+
+}
+
+.loginBtn{
+    background-color: #52b0eb;
+    width:  75%;
+    height: 25px;
+    color: white;
+    margin: 10px auto 0px;
+    border-radius: 7px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.loginBtn:hover{
+    background-color: #003cff;
 }

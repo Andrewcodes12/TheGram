@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import * as sessionActions from '../../store/session';
 import './splash.css'
 
 
@@ -30,6 +31,14 @@ const SplashPage = () => {
 
     if (user) {
       return <Redirect to='/feed' />;
+    }
+
+    const demoLogin = async () => {
+      setEmail('demo@aa.io');
+      setPassword('password');
+      return dispatch(
+        sessionActions.login({email: 'demo@aa.io', password: 'password'})
+      );
     }
 
     return (
@@ -64,6 +73,16 @@ const SplashPage = () => {
                 />
         </div>
         <button type='submit' className="loginBtn">Login</button>
+        <div className="demoBtn">
+        {!user?
+        <button className="demoBtn" onClick={demoLogin}>Demo Login</button>
+        : null}
+        <div>
+          <p className="dontAccount">Dont have an account?</p>
+          <a className="register" href="/sign-up">Register</a>
+          </div>
+
+        </div>
         </form>
             </div>
             </div>
