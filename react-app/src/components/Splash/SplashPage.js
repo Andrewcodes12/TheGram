@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import * as sessionActions from '../../store/session';
+import Footer from '../Footer/Index';
 import './splash.css'
 
 
@@ -93,6 +94,7 @@ const SplashPage = () => {
             </div>
 
             </div>
+            <Footer />
         </div>
     )
 }
