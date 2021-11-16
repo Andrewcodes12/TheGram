@@ -10,8 +10,8 @@ class Like(db.Model):
     commentId = db.Column(db.Integer, db.ForeignKey('comments.id'))
     count = db.Column(db.Integer)
 
-    like = db.relationship('Like', backref='user', lazy='dynamic')
-    post = db.relationship('Post', backref='post', lazy='dynamic')
+    like = db.relationship('Like', backref='user', lazy='dynamic',cascade = "all,delete")
+    post = db.relationship('Post', backref='post', lazy='dynamic',cascade = "all,delete")
 
 
     def to_dict(self):
