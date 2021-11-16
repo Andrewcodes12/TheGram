@@ -22,3 +22,15 @@ body{
     align-items: center;
     margin-top: 5%;
 }
+
+.appName{
+    margin: 22px auto 12px ;
+    font-family: cursive;
+}
+
+.login{
+  -webkit-box-align: center;
+  align-items:center;
+  background-color: rgba(var(--d87,255,255,255),1);
+
+}
