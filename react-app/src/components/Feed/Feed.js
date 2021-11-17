@@ -5,15 +5,21 @@ import { Link, NavLink } from "react-router-dom";
 
 
 import { deletePost, getPosts, updatePost, } from "../../store/post";
+import { getComments } from "../../store/comment";
+import {getLikes} from "../../store/like";
 
 
 const Feed = () => {
 const dispatch = useDispatch();
 const post = useSelector(state => state.post.posts);
 const user = useSelector(state => state.session.user);
+const comments = useSelector(state => state.comment.comments);
+const likes = useSelector(state => state.like.likes);
 
 useEffect(() => {
     dispatch(getPosts());
+    dispatch(getComments());
+    dispatch(getLikes());
 }, [dispatch]);
 
 

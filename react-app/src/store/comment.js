@@ -96,7 +96,7 @@ const initialState = {
     comment: {}
 }
 
-const commentReducer = (state=initialState, action) => {
+const CommentReducer = (state=initialState, action) => {
     switch(action.type){
         case LOAD:
             return {
@@ -128,4 +128,4 @@ const commentReducer = (state=initialState, action) => {
     }
 }
 
-export default commentReducer;
+export default CommentReducer;

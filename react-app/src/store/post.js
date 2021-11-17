@@ -90,7 +90,7 @@ const initialState = {
     post: {}
 };
 
-const postReducer = (state = initialState, action) => {
+const PostReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:
             return {
@@ -122,4 +122,4 @@ const postReducer = (state = initialState, action) => {
     }
 }
 
-export default postReducer;
+export default PostReducer;
