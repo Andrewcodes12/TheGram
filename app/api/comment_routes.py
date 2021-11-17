@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify, request, Flask
 from flask_login import current_user, login_required
 from app.models import db, User, Post, Comment, Like
 from flask_sqlalchemy import SQLAlchemy
-
+from app.forms import CommentForm
 
 
 comment_routes = Blueprint('comments', __name__)
@@ -30,3 +30,25 @@ def get_comment(id):
     """
     comment = Comment.query.get(id)
     return jsonify(comment.to_dict())
+
+
+# ADD A COMMENT
+@comment_routes.route('/new/', methods=['POST'])
+# @login_required
+def create_comment():
+    """
+    Creates a comment
+    """
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        comment = Comment(
+            body=form.data['body'],
+            user_id=form.data['user_id'],
+            postId=form.data['postId']
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return comment.to_dict()
+    return jsonify(form.errors), 400
