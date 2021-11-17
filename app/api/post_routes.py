@@ -9,7 +9,7 @@ from app.forms import PostForm
 
 post_routes = Blueprint('posts', __name__)
 
-#GET ALL POSTS
+# GET ALL POSTS
 @post_routes.route('/', methods=['GET'])
 # @login_required
 def get_posts():
@@ -19,7 +19,7 @@ def get_posts():
     posts = Post.query.all()
     return jsonify([post.to_dict() for post in posts])
 
-
+# GET POST BY ID
 @post_routes.route('/<int:id>', methods=['GET'])
 # @login_required
 def get_post(id):
