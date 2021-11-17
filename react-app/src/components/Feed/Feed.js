@@ -10,7 +10,7 @@ import { deletePost, getPosts, updatePost, } from "../../store/post";
 const Feed = () => {
 const dispatch = useDispatch();
 const post = useSelector(state => state.post.posts);
-const session= useSelector(state => state.session);
+const user = useSelector(state => state.session.user);
 
 useEffect(() => {
     dispatch(getPosts());
@@ -36,7 +36,7 @@ const addComment = (id, comment) => {
     return (
         <div className="mainContainer">
            {post.map(post => (
-               <div className="postContainer">
+               <div className="postContainer" key="post.id">
                      <div className="postHeader">
                    <img src={post.photoUrl} alt="images"/>
                    </div>
