@@ -11,10 +11,11 @@ class Post(db.Model):
     caption = db.Column(db.String(255))
     likes = db.Column(db.Integer, default=1)
     created_at = db.Column(db.DateTime, nullable=False)
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
+    userId = db.Column(db.Integer(),db.ForeignKey('users.id'), nullable=False)
+
 
     # like= db.relationship('Like', backref='post',cascade = "all,delete")
-    # comment_post=db.relationship('Comment', backref='post',cascade = "all,delete")
+    comment_post=db.relationship('Comment', backref='post_a_comment',cascade = "all,delete")
     # see_posts=db.relationship('User', backref='user_post',cascade = "all,delete")
 
     def to_dict(self):

@@ -18,6 +18,9 @@ class User(db.Model, UserMixin):
     # likes=db.relationship('Like',cascade = "all,delete", backref='user_like')
     # comment_user=db.relationship('Comment',cascade = "all,delete", backref='user_name')
     user_post=db.relationship('Post',cascade = "all,delete", backref='see_posts')
+    # the_users_id= db.relationship('Comment', backref='userId',cascade = "all,delete")
+    userid_for_comment = db.relationship("Comment", backref=db.backref('comments', lazy=True))
+
 
     following = db.relationship(
     'User', lambda: user_following,
