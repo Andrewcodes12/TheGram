@@ -9,7 +9,7 @@ from app.forms import PostForm
 
 post_routes = Blueprint('posts', __name__)
 
-
+#GET ALL POSTS
 @post_routes.route('/', methods=['GET'])
 # @login_required
 def get_posts():
@@ -29,7 +29,7 @@ def get_post(id):
     post = Post.query.get(id)
     return jsonify(post.to_dict())
 
-
+# ADD A POST
 @post_routes.route('/new', methods=['POST'])
 # @login_required
 def create_post():
@@ -45,8 +45,37 @@ def create_post():
             caption=form.data['caption'],
             userId=form.data['userId']
         )
-        print("-------------",current_user.get_id())
         db.session.add(post)
         db.session.commit()
         return post.to_dict()
     return jsonify(form.errors), 400
+
+#EDIT A POST
+@post_routes.route('/<int:id>', methods=['PUT'])
+# @login_required
+def edit_post(id):
+    """
+    Edits a post
+    """
+    post = Post.query.get(id)
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        post.caption = form.data['caption']
+        db.session.commit()
+        return post.to_dict()
+    return jsonify(form.errors), 400
+
+
+# DELETE A SINGLE POST
+@post_routes.route('/<int:id>', methods=['DELETE'])
+# @login_required
+def delete_post(id):
+    """
+    Deletes a post
+    """
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    return jsonify(post.to_dict())
