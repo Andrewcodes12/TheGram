@@ -48,11 +48,7 @@ def seed_users():
         following=[bobbie, Jylo, srad, alvin, zark, melon,cark, beff, gill],
         profileImage='https://i.imgur.com/NQz9NDx.jpeg')
 
-
-    seeds = [marnie, bobbie, demo, Jylo, srad, alvin, zark, melon, cark, beff, gill]
-
-    for i in seeds:
-        db.session.add(i)
+    db.session.add_all([marnie, bobbie, Jylo, srad, alvin, zark, melon,cark, beff, gill, demo])
 
     db.session.commit()
 
