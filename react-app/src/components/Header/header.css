@@ -15,5 +15,12 @@
 }
 
 .searchBar{
-    
+    width: 300px;
+    align-self: center;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.searchBar:focus{
+    border-color: black
 }

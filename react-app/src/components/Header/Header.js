@@ -5,8 +5,6 @@ import NavLink from 'react-router-dom/NavLink'
 
 import './header.css'
 
-
-
 const Header = () => {
     return (
         <div>
@@ -17,9 +15,6 @@ const Header = () => {
                 </NavLink>
          </div>
          <div className="searchBar">
-             <div>
-
-             </div>
             <input type="text" placeholder="Search" className="search"/>
          </div>
          </div>
