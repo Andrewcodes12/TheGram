@@ -1,0 +1,9 @@
+.postContainer{
+    padding: 90px 10px 0px 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 1025px;
+    max-width: 825px;
+    margin: 0 auto;
+    size: x-small;
+}
