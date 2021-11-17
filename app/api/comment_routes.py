@@ -52,3 +52,34 @@ def create_comment():
         db.session.commit()
         return comment.to_dict()
     return jsonify(form.errors), 400
+
+#EDIT A COMMENT
+@comment_routes.route('/<int:id>/edit/', methods=['PUT'])
+# @login_required
+def edit_comment(id):
+    """
+    Edits a comment
+    """
+    comment = Comment.query.get(id)
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        comment.body = form.data['body']
+        db.session.commit()
+        return comment.to_dict()
+    return jsonify(form.errors), 400
+
+
+# DELETE A COMMENT
+@comment_routes.route('/<int:id>/delete/', methods=['DELETE'])
+# @login_required
+def delete_comment(id):
+    """
+    Deletes a comment
+    """
+    comment = Comment.query.get(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return jsonify(comment.to_dict())
+    
