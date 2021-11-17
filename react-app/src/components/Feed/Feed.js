@@ -21,7 +21,7 @@ useEffect(() => {
            {post.map(post => (
                <div className="postContainer">
                    <div>{post.caption}</div>
-                   <div>{post.photoUrl}</div>
+                   <img src={post.photoUrl} alt="images"/>
                      <div>{session.user.username}</div>
 
                    </div>
