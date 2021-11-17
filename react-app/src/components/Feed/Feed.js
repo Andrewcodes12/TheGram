@@ -16,16 +16,30 @@ useEffect(() => {
 }, [dispatch]);
 
 
+const editPost = (id) => {
+    dispatch(getPosts(id));
+}
+
+
+const addComment = (id, comment) => {
+    dispatch(getPosts(id, comment));
+}
+
+
+
     return (
         <div className="mainContainer">
            {post.map(post => (
                <div className="postContainer">
                    <div>{post.caption}</div>
                    <img src={post.photoUrl} alt="images"/>
-                     <div>{session.user.username}</div>
-
+                        <div>{post.likes}</div>
+                        <div>{post.comments}</div>
+                        <div><button onClick={() => editPost(post.id)}>Edit</button></div>
+                        <div><button onClick={() => addComment(post.id, "comment")}>Comment</button></div>
                    </div>
                    ))}
+
         </div>
     )
 }
