@@ -10,7 +10,7 @@ class Post(db.Model):
     photoUrl = db.Column(db.String, nullable=False)
     caption = db.Column(db.String(255))
     likes = db.Column(db.Integer, default=1)
-    created_at = db.Column(db.DateTime, nullable=False)
+    created_at = db.Column(db.DateTime)
     userId = db.Column(db.Integer(),db.ForeignKey('users.id'), nullable=False)
 
 
@@ -24,6 +24,5 @@ class Post(db.Model):
             'photoUrl': self.photoUrl,
             'caption': self.caption,
             'likes': self.likes,
-            'created_at': self.created_at.strftime('%Y-%m-%d %H:%M:%S'),
             'userId': self.userId
         }
