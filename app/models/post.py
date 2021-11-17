@@ -12,7 +12,8 @@ class Post(db.Model):
     likes = db.Column(db.Integer, default=1)
     created_at = db.Column(db.DateTime)
     userId = db.Column(db.Integer(),db.ForeignKey('users.id'), nullable=False)
-
+    
+    userName = db.relationship('User', backref=backref('username', lazy=True))
 
     # like= db.relationship('Like', backref='post',cascade = "all,delete")
     comment_post=db.relationship('Comment', backref='post_a_comment',cascade = "all,delete")
