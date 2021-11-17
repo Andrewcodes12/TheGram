@@ -39,7 +39,7 @@ export const getPosts = () => async (dispatch) => {
 }
 
 export const getPost = (id) => async (dispatch) => {
-    const response = await fetch(`api/posts/${id}`);
+    const response = await fetch(`api/posts/${id}/`);
     if (response.ok) {
       const post = await response.json();
       dispatch(loadOne(post));
@@ -47,7 +47,7 @@ export const getPost = (id) => async (dispatch) => {
 }
 
 export const addPost = (post) => async (dispatch) => {
-    const response = await fetch("api/posts/new", {
+    const response = await fetch("api/posts/new/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -61,7 +61,7 @@ export const addPost = (post) => async (dispatch) => {
 }
 
 export const updatePost = (post) => async (dispatch) => {
-    const response = await fetch(`api/posts/${post.id}`, {
+    const response = await fetch(`api/posts/${post.id}/edit/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
@@ -76,7 +76,7 @@ export const updatePost = (post) => async (dispatch) => {
 
 
 export const deletePost = (id) => async (dispatch) => {
-    const response = await fetch(`api/posts/${id}`, {
+    const response = await fetch(`api/posts/${id}/delete/`, {
       method: "DELETE"
     });
     if (response.ok) {
@@ -90,7 +90,7 @@ const initialState = {
     post: {}
 };
 
-const postReducer = (state = initialState, action) => {
+const PostReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:
             return {
@@ -122,4 +122,4 @@ const postReducer = (state = initialState, action) => {
     }
 }
 
-export default postReducer;
+export default PostReducer;

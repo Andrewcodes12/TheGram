@@ -30,7 +30,7 @@ def get_post(id):
     return jsonify(post.to_dict())
 
 # ADD A POST
-@post_routes.route('/new', methods=['POST'])
+@post_routes.route('/new/', methods=['POST'])
 # @login_required
 def create_post():
     """
@@ -51,7 +51,7 @@ def create_post():
     return jsonify(form.errors), 400
 
 #EDIT A POST
-@post_routes.route('/<int:id>', methods=['PUT'])
+@post_routes.route('/<int:id>/edit/', methods=['PUT'])
 # @login_required
 def edit_post(id):
     """
@@ -69,7 +69,7 @@ def edit_post(id):
 
 
 # DELETE A SINGLE POST
-@post_routes.route('/<int:id>', methods=['DELETE'])
+@post_routes.route('/<int:id>/delete/', methods=['DELETE'])
 # @login_required
 def delete_post(id):
     """

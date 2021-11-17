@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/Splash/SplashPage';
 import Feed from './components/Feed/Feed';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function App() {
           <SplashPage />
         </Route>
         <ProtectedRoute path='/feed' exact={true} >
-          <NavBar />
+      
           <Feed />
         </ProtectedRoute>
       </Switch>
