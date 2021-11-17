@@ -17,3 +17,14 @@ def get_posts():
     """
     posts = Post.query.all()
     return jsonify([post.to_dict() for post in posts])
+
+
+@post_routes.route('/<int:id>', methods=['GET'])
+# @login_required
+def get_post(id):
+    """
+    Gets a single post
+    """
+    post = Post.query.get(id)
+    return jsonify(post.to_dict())
+    
