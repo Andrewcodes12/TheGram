@@ -17,3 +17,21 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+#USER CAN FOLLOW OTHER USERS
+@user_routes.route('/<int:id>/follow/', methods=['POST'])
+# @login_required
+def follow(id):
+    user = User.query.get(id)
+    user.follow()
+    return jsonify(user.to_dict())
+
+
+#USER CAN UNFOLLOW OTHER USERS
+@user_routes.route('/<int:id>/unfollow/', methods=['POST'])
+# @login_required
+def unfollow(id):
+    user = User.query.get(id)
+    user.unfollow()
+    return jsonify(user.to_dict())
