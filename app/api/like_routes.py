@@ -72,3 +72,20 @@ def like_post(id):
     db.session.add(like)
     db.session.commit()
     return like.to_dict()
+
+
+# UNLIKE A POST
+@like_routes.route('/post/<int:id>/unlike/', methods=['POST'])
+# @login_required
+def unlike_post(id):
+    """
+    Unlikes a post
+    """
+    user_id = current_user.get_id()
+    post = Post.query.get(id)
+    post.likes -= 1
+    like = Like.query.filter_by(userId=user_id, postId=id).first()
+    db.session.delete(like)
+    db.session.commit()
+    return like.to_dict()
+
