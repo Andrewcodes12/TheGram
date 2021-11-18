@@ -60,13 +60,13 @@ export const addPost = (post) => async (dispatch) => {
     }
 }
 
-export const updatePost = (post) => async (dispatch) => {
-    const response = await fetch(`api/posts/${post.id}/edit/`, {
+export const updatePost = (id) => async (dispatch) => {
+    const response = await fetch(`api/posts/${id}/edit/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(post)
+      body: JSON.stringify()
     });
     if (response.ok) {
       const updatedPost = await response.json();
