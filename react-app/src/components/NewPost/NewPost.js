@@ -4,6 +4,7 @@ import { useDispatch,useSelector } from 'react-redux'
 
 import { addPost } from '../../store/post'
 
+import './newPost.css'
 
 const NewPost = () => {
 const dispatch = useDispatch()
@@ -31,7 +32,6 @@ const handleSubmit = (e) => {
     dispatch(addPost(newPost))
     reset()
 }
-
 
 
 
