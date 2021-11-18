@@ -39,7 +39,7 @@ export const getPosts = () => async (dispatch) => {
 }
 
 export const getPost = (id) => async (dispatch) => {
-    const response = await fetch(`api/posts/${id}/`);
+    const response = await fetch(`/posts/${id}/`);
     if (response.ok) {
       const post = await response.json();
       dispatch(loadOne(post));
@@ -47,7 +47,7 @@ export const getPost = (id) => async (dispatch) => {
 }
 
 export const addPost = (post) => async (dispatch) => {
-    const response = await fetch("api/posts/new/", {
+    const response = await fetch("/api/posts/new/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
