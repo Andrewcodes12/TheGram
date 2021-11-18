@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from "react-redux"
 
 import Header from '../Header/Header'
 
-import {getPosts, updatePost,deletePost} from '../../store/post'
+import {getPosts,deletePost} from '../../store/post'
 import {getComments} from '../../store/comment'
 import {getLikes} from '../../store/like'
 
-import EditPost from "../NewComment/NewComment";
 
+import NewComment from "../NewComment/NewComment";
+import EditCaption from "../EditCaption/EditCaption";
 
 const Post = () => {
 const post = useSelector(state => state.post.posts)
 const comments = useSelector(state => state.comment.comments)
 const likes = useSelector(state => state.likes)
+
 
 const dispatch = useDispatch()
 
@@ -30,23 +32,21 @@ const deleteAPost = (id) => {
     dispatch(deletePost(id))
 }
 
-
-
-
     return (
         <div>
             <Header />
             {post.map(post => (
                 <div key={post.id}>
                 <img src={post.photoUrl} alt="" key={post.id} />
-                <div> {post.caption} </div>
-                <div> {post.likes} likes </div>
+                <h3> {post.caption} </h3>
+                <EditCaption post={post}/>
+                <h5> {post.likes} likes </h5>
                 {comments.map(comment => (
                     <div key={comment.id}>
                         {comment.postId === post.id && <div>{comment.body}</div>}
                     </div>
               ))}
-                <EditPost post={post} />
+                <NewComment post={post} />
                 </div>
                 ))}
 
