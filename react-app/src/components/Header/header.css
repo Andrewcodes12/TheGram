@@ -1,0 +1,84 @@
+@import url('//fonts.cdnfonts.com/css/billabong');
+
+
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    background-color: white;
+    height: 50px;
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, .05);
+    padding: 0px 40px;
+    z-index: 1;
+}
+
+#home{
+    margin-left: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+
+#upload{
+    margin-left: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+
+#profile{
+    margin-left: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+#logout{
+    margin-left: 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.rightNav {
+    display: flex;
+}
+
+.navSearch {
+    position: relative;
+}
+
+  .navSearch input {
+    font-size: 14px;
+    background-color: white;
+    height: 30px;
+    padding: 3px 20px;
+    padding-left: 25px;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.07);
+    border-radius: 2px;
+}
+
+  .navSearch .fa-search {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+.navBar .logo a {
+  font-family: "billabong", sans-serif;
+  position: relative;
+  font-size: 27px;
+  color: #000000;
+  text-decoration: none;
+}
