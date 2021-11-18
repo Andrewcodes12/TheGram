@@ -38,8 +38,9 @@ const deleteAPost = (id) => {
             <Header />
             {post.map(post => (
                 <div key={post.id}>
-                <img src={post.photoUrl} alt={post.caption} key={post.id} />
+                <img src={post.photoUrl} alt="" key={post.id} />
                 <div> {post.caption} </div>
+                <div> {post.likes} likes </div>
                 {comments.map(comment => (
                     <div key={comment.id}>
                         {comment.postId === post.id && <div>{comment.body}</div>}
