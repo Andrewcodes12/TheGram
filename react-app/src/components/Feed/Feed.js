@@ -7,7 +7,7 @@ import {getPosts} from '../../store/post'
 import {getComments} from '../../store/comment'
 import {getLikes} from '../../store/like'
 
-
+import Post from "../Posts/Post";
 
 const Feed = () => {
 const post = useSelector(state => state.post)
@@ -27,7 +27,7 @@ useEffect(() => {
     return (
         <div>
             <Header />
-
+            <Post />
         </div>
     )
 }
