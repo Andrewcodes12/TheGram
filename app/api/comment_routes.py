@@ -72,7 +72,7 @@ def edit_comment(id):
 
 
 # DELETE A COMMENT
-@comment_routes.route('/<int:id>/delete/', methods=['DELETE'])
+@comment_routes.route('/<int:id>/', methods=['DELETE'])
 # @login_required
 def delete_comment(id):
     """

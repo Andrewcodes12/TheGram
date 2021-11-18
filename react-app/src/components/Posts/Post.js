@@ -11,6 +11,7 @@ import {getLikes} from '../../store/like'
 import NewComment from "../NewComment/NewComment";
 import EditCaption from "../EditCaption/EditCaption";
 import EditComments from "../EditComments/EditComments";
+import DeleteComments from "../DeleteComments/DeleteComments";
 
 const Post = () => {
 const post = useSelector(state => state.post.posts)
@@ -34,6 +35,7 @@ const deleteAPost = (id) => {
     dispatch(deletePost(id))
 }
 
+
     return (
         <div>
             <Header />
@@ -48,6 +50,7 @@ const deleteAPost = (id) => {
                     <div key={comment.id}>
                         {comment.postId === post.id && <div>{comment.body}</div>}
                         {post.userId === comment.id ? <EditComments comment={comment} /> : null}
+                        {post.userId === comment.id ? <DeleteComments comment={comment} />  : null}
                     </div>
               ))}
                 <NewComment post={post} />

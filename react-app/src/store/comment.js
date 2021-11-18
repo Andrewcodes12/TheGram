@@ -80,16 +80,17 @@ export const updateComment = (comment) => async (dispatch) => {
 
 
 
-export const deleteComment = (comment) => async (dispatch) => {
+export const deleteAComment = (comment) => async (dispatch) => {
     const response = await fetch(`api/comments/${comment.id}/`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(comment)
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(comment)
     });
     if (response.ok) {
-      dispatch(deleteOne(comment));
+        const deletedComment = await response.json();
+        dispatch(deleteOne(deletedComment));
     }
 }
 
