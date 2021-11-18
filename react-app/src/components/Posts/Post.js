@@ -15,6 +15,7 @@ const Post = () => {
 const post = useSelector(state => state.post.posts)
 const comments = useSelector(state => state.comment.comments)
 const likes = useSelector(state => state.likes)
+const user = useSelector(state => state.session.user)
 
 
 const dispatch = useDispatch()
@@ -39,7 +40,8 @@ const deleteAPost = (id) => {
                 <div key={post.id}>
                 <img src={post.photoUrl} alt="" key={post.id} />
                 <h3> {post.caption} </h3>
-                <EditCaption post={post}/>
+                {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}>Delete</button> : null}
+                {post.userId === user.id ? <EditCaption post={post} /> : null}
                 <h5> {post.likes} likes </h5>
                 {comments.map(comment => (
                     <div key={comment.id}>
