@@ -9,7 +9,6 @@ const Feed = () => {
     return (
         <div>
             <Header />
-            <h1>Feed</h1>
 
         </div>
     )
