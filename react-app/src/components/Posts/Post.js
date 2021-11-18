@@ -40,16 +40,16 @@ const deleteAPost = (id) => {
                 <div key={post.id}>
                 <img src={post.photoUrl} alt={post.caption} key={post.id} />
                 <div> {post.caption} </div>
+                {comments.map(comment => (
+                    <div key={comment.id}>
+                        {comment.postId === post.id && <div>{comment.body}</div>}
+                    </div>
+              ))}
                 <EditPost post={post} />
                 </div>
                 ))}
 
-            {comments.map(comment => (
-                <div key={comment.postId}>
-                <div> {comment.body} </div>
-                <div> {comment.postId} </div>
-                </div>
-            ))}
+
 
         </div>
 
