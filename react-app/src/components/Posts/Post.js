@@ -7,12 +7,12 @@ import {getPosts, updatePost,deletePost} from '../../store/post'
 import {getComments} from '../../store/comment'
 import {getLikes} from '../../store/like'
 
-import EditPost from "../EditPost/EditPost";
+import EditPost from "../NewComment/NewComment";
 
 
 const Post = () => {
 const post = useSelector(state => state.post.posts)
-const comments = useSelector(state => state.comments)
+const comments = useSelector(state => state.comment.comments)
 const likes = useSelector(state => state.likes)
 
 const dispatch = useDispatch()
@@ -43,6 +43,14 @@ const deleteAPost = (id) => {
                 <EditPost post={post} />
                 </div>
                 ))}
+
+            {comments.map(comment => (
+                <div key={comment.postId}>
+                <div> {comment.body} </div>
+                <div> {comment.postId} </div>
+                </div>
+            ))}
+
         </div>
 
     )
