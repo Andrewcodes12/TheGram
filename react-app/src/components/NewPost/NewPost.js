@@ -5,16 +5,14 @@ import { useDispatch,useSelector } from 'react-redux'
 import { addPost } from '../../store/post'
 
 
-import './newPost.css'
-
 const NewPost = () => {
 const dispatch = useDispatch()
 
 const [photoUrl, setPhotoUrl] = useState('')
 const [caption, setCaption] = useState('')
-const [userId, setUserId] = useState('')
 
-const user = useSelector(state => state.user)
+
+const sessionUser = useSelector(state => state.session.user);
 
 const reset = () => {
     setPhotoUrl('')
@@ -23,11 +21,11 @@ const reset = () => {
 
 const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     const newPost = {
         photoUrl,
         caption,
-        user
+        userId:sessionUser.id
     }
 
     dispatch(addPost(newPost))
@@ -52,17 +50,11 @@ const handleSubmit = (e) => {
         <input
           type="text"
           onChange={(e) => setPhotoUrl(e.target.value)}
-          value={user}
+          value={photoUrl}
           placeholder="Image URL"
           name="imageUrl"
         />
-          <input
-          type="integer"
-          onChange={(e) => setUserId(e.target.value)}
-          value={user}
-          placeholder="userid"
-          name="imageUrl"
-        />
+
         <button type="submit">Submit</button>
       </form>
     </div>
