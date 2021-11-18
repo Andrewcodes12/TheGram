@@ -5,6 +5,8 @@ const UPDATE_ONE="Comments/UPDATE_ONE"
 const DELETE_ONE="Comments/DELETE_ONE"
 
 
+
+
 const load = (comments) => ({
     type: LOAD,
     payload:comments
@@ -64,29 +66,31 @@ export const addComment = (comment) => async (dispatch) => {
 
 export const updateComment = (comment) => async (dispatch) => {
     const response = await fetch(`api/comments/${comment.id}/`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(comment)
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(comment)
     });
     if (response.ok) {
-      const updatedComment = await response.json();
-      dispatch(updateOne(updatedComment));
+        const updatedComment = await response.json();
+        dispatch(updateOne(updatedComment));
     }
 }
 
 
-export const deleteComment = (comment) => async (dispatch) => {
+
+export const deleteAComment = (comment) => async (dispatch) => {
     const response = await fetch(`api/comments/${comment.id}/`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(comment)
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(comment)
     });
     if (response.ok) {
-      dispatch(deleteOne(comment));
+        const deletedComment = await response.json();
+        dispatch(deleteOne(deletedComment));
     }
 }
 

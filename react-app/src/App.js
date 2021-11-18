@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import SplashPage from './components/Splash/SplashPage';
 import Feed from './components/Feed/Feed';
+import NewPost from './components/NewPost/NewPost';
 
 
 function App() {
@@ -46,8 +47,8 @@ function App() {
           <SplashPage />
         </Route>
         <ProtectedRoute path='/feed' exact={true} >
-      
           <Feed />
+          <NewPost/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

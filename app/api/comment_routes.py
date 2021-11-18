@@ -54,7 +54,7 @@ def create_comment():
     return jsonify(form.errors), 400
 
 #EDIT A COMMENT
-@comment_routes.route('/<int:id>/edit/', methods=['PUT'])
+@comment_routes.route('/<int:id>/', methods=['PUT'])
 # @login_required
 def edit_comment(id):
     """
@@ -72,7 +72,7 @@ def edit_comment(id):
 
 
 # DELETE A COMMENT
-@comment_routes.route('/<int:id>/delete/', methods=['DELETE'])
+@comment_routes.route('/<int:id>/', methods=['DELETE'])
 # @login_required
 def delete_comment(id):
     """
@@ -82,4 +82,3 @@ def delete_comment(id):
     db.session.delete(comment)
     db.session.commit()
     return jsonify(comment.to_dict())
-    
