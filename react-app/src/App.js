@@ -46,7 +46,6 @@ function App() {
           <SplashPage />
         </Route>
         <ProtectedRoute path='/feed' exact={true} >
-      
           <Feed />
         </ProtectedRoute>
       </Switch>
