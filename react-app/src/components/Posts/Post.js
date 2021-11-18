@@ -10,6 +10,7 @@ import {getLikes} from '../../store/like'
 
 import NewComment from "../NewComment/NewComment";
 import EditCaption from "../EditCaption/EditCaption";
+import EditComments from "../EditComments/EditComments";
 
 const Post = () => {
 const post = useSelector(state => state.post.posts)
@@ -46,6 +47,7 @@ const deleteAPost = (id) => {
                 {comments.map(comment => (
                     <div key={comment.id}>
                         {comment.postId === post.id && <div>{comment.body}</div>}
+                        {post.userId === comment.id ? <EditComments comment={comment} /> : null}
                     </div>
               ))}
                 <NewComment post={post} />

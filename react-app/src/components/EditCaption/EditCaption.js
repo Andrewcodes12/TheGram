@@ -21,10 +21,6 @@ const handleSubmit = async (e) => {
     }
 }
 
-
-
-
-
     return (
         <div>
             <form onSubmit={handleSubmit}>

@@ -66,17 +66,18 @@ export const addComment = (comment) => async (dispatch) => {
 
 export const updateComment = (comment) => async (dispatch) => {
     const response = await fetch(`api/comments/${comment.id}/`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(comment)
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(comment)
     });
     if (response.ok) {
-      const updatedComment = await response.json();
-      dispatch(updateOne(updatedComment));
+        const updatedComment = await response.json();
+        dispatch(updateOne(updatedComment));
     }
 }
+
 
 
 export const deleteComment = (comment) => async (dispatch) => {
