@@ -44,7 +44,7 @@ const deleteAPost = (id) => {
                 <div key={post.id}>
                 <img src={post.photoUrl} alt="" key={post.id} />
                 <h3> {post.caption} </h3>
-                {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}>Delete</button> : null}
+                {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}><i class="fas fa-trash-alt"> </i></button> : null}
                 {post.userId === user.id ? <EditCaption post={post} /> : null}
                 <NewComment post={post} />
 
@@ -55,13 +55,8 @@ const deleteAPost = (id) => {
                         {comment.postId === post.id && comment.userId === user.id ? <DeleteComments comment={comment} />  : null}
                     </div>
               ))}
-
                 </div>
                 ))}
-
-
-
-
         </div>
 
     )

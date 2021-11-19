@@ -28,7 +28,7 @@ useEffect(() => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={comments} onChange={(e) => setComment(e.target.value)} />
-                <button type="submit">Edit</button>
+                <button type="submit"><i class="fas fa-edit"></i></button>
             </form>
         </div>
     )
