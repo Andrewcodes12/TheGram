@@ -1,29 +1,20 @@
+.body{
+    padding-top: 50px;
+}
+
 .postContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 614px;
-    height: 100%;
-    margin: 1.5rem 1rem 0.25rem;
-    border: 1px solid #DBDBDB;
-    border-radius: 2.5px;
-    /* max-height: 800px; */
-    min-height: 250px;
-    background-color: white;
+    margin-top: 70px;
 }
 
 .post{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 614px;
-    height: 100%;
-    margin: 1.5rem 1rem 0.25rem;
-    border: 1px solid #DBDBDB;
-    border-radius: 2.5px;
-    /* max-height: 800px; */
-    min-height: 250px;
-    background-color: white;
+
+    border: 1px solid #83838360;
+    height: fit-content;
+    margin-bottom: 30px;
+    border-radius: 2px;
 
 }
 
