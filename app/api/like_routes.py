@@ -55,7 +55,7 @@ def get_like(id):
 
 
 # LIKE A POST
-@like_routes.route('/post/<int:id>/like/', methods=['POST'])
+@like_routes.route('/<int:id>', methods=['POST'])
 # @login_required
 def like_post(id):
     """
@@ -66,7 +66,7 @@ def like_post(id):
     post.likes += 1
     like = Like(
         userId=user_id,
-        postId=id,
+        postId=post,
         count=1
     )
     db.session.add(like)
@@ -88,4 +88,3 @@ def unlike_post(id):
     db.session.delete(like)
     db.session.commit()
     return like.to_dict()
-

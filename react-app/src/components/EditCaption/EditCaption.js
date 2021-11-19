@@ -21,6 +21,11 @@ const handleSubmit = async (e) => {
     }
 }
 
+useEffect(() => {
+    setCaption(post.caption)
+}, [post])
+
+
     return (
         <div>
             <form onSubmit={handleSubmit}>

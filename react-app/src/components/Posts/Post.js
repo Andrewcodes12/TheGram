@@ -12,6 +12,7 @@ import NewComment from "../NewComment/NewComment";
 import EditCaption from "../EditCaption/EditCaption";
 import EditComments from "../EditComments/EditComments";
 import DeleteComments from "../DeleteComments/DeleteComments";
+import AddLikes from "../AddLikes/AddLikes";
 
 const Post = () => {
 const post = useSelector(state => state.post.posts)
@@ -46,14 +47,16 @@ const deleteAPost = (id) => {
                 {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}>Delete</button> : null}
                 {post.userId === user.id ? <EditCaption post={post} /> : null}
                 <h5> {post.likes} likes </h5>
+                <AddLikes post={post} />
+
                 {comments.map(comment => (
                     <div key={comment.id}>
                         {comment.postId === post.id && <div>{comment.body}</div>}
-                        {post.userId === comment.id ? <EditComments comment={comment} /> : null}
-                        {post.userId === comment.id ? <DeleteComments comment={comment} />  : null}
+                        {post.userId === comment.userId ? <EditComments comment={comment} /> : null}
+                        {post.userId === comment.userId ? <DeleteComments comment={comment} />  : null}
                     </div>
               ))}
-                <NewComment post={post} />
+               <NewComment post={post} />
                 </div>
                 ))}
 

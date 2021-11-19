@@ -18,11 +18,17 @@ const handleSubmit = async (e) => {
     }
 }
 
+
+useEffect(() => {
+    setComment(comment.body)
+}, [comment])
+
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={comments} onChange={(e) => setComment(e.target.value)} />
-                <button type="submit">Edit Comment</button>
+                <button type="submit">Edit</button>
             </form>
         </div>
     )
