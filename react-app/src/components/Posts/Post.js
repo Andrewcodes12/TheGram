@@ -63,9 +63,9 @@ const deleteAPost = (id) => {
                     </div>
 
                 {comments.map(comment => (
-                    <div key={comment.id}>
+                    <div key={comment.id} className="commentContainer">
                         <div className="comment">
-                        {comment.postId === post.id && <div>{comment.body}</div>}
+                        {comment.postId === post.id && <div className="comments">{comment.body}</div>}
                         </div>
                         <div className="commentBtn">
                             <div className="commentEditBtn">
