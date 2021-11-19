@@ -32,6 +32,8 @@ const deleteOne=(post)=>({
 
 export const getPosts = () => async (dispatch) => {
     const response = await fetch("api/posts/");
+    //get users as well do another fetch for users
+    //for each post create new array with that array include owner of post using .find 
     if (response.ok) {
       const posts = await response.json();
       dispatch(load(posts));

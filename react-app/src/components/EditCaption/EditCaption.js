@@ -21,11 +21,16 @@ const handleSubmit = async (e) => {
     }
 }
 
+useEffect(() => {
+    setCaption(post.caption)
+}, [post])
+
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={caption} onChange={(e) => setCaption(e.target.value)} />
-                <button type="submit">Edit Caption</button>
+                <button type="submit"><i class="fas fa-edit"></i></button>
             </form>
 
         </div>

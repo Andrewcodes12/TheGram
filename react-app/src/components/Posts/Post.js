@@ -5,13 +5,15 @@ import Header from '../Header/Header'
 
 import {getPosts,deletePost} from '../../store/post'
 import {getComments} from '../../store/comment'
-import {getLikes} from '../../store/like'
+
 
 
 import NewComment from "../NewComment/NewComment";
 import EditCaption from "../EditCaption/EditCaption";
 import EditComments from "../EditComments/EditComments";
 import DeleteComments from "../DeleteComments/DeleteComments";
+
+
 
 const Post = () => {
 const post = useSelector(state => state.post.posts)
@@ -26,7 +28,6 @@ const dispatch = useDispatch()
 useEffect(() => {
     dispatch(getPosts())
     dispatch(getComments())
-    dispatch(getLikes())
 }, [dispatch])
 
 
@@ -43,22 +44,19 @@ const deleteAPost = (id) => {
                 <div key={post.id}>
                 <img src={post.photoUrl} alt="" key={post.id} />
                 <h3> {post.caption} </h3>
-                {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}>Delete</button> : null}
+                {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}><i class="fas fa-trash-alt"> </i></button> : null}
                 {post.userId === user.id ? <EditCaption post={post} /> : null}
-                <h5> {post.likes} likes </h5>
+                <NewComment post={post} />
+
                 {comments.map(comment => (
                     <div key={comment.id}>
                         {comment.postId === post.id && <div>{comment.body}</div>}
-                        {post.userId === comment.id ? <EditComments comment={comment} /> : null}
-                        {post.userId === comment.id ? <DeleteComments comment={comment} />  : null}
+                        {comment.postId === post.id && comment.userId === user.id ? <EditComments comment={comment} /> : null}
+                        {comment.postId === post.id && comment.userId === user.id ? <DeleteComments comment={comment} />  : null}
                     </div>
               ))}
-                <NewComment post={post} />
                 </div>
                 ))}
-
-
-
         </div>
 
     )
