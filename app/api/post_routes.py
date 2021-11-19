@@ -76,6 +76,9 @@ def delete_post(id):
     Deletes a post
     """
     post = Post.query.get(id)
+    likes = Like.query.filter_by(postId=id).all()
+    for like in likes:
+        db.session.delete(like)
     db.session.delete(post)
     db.session.commit()
     return jsonify(post.to_dict())
