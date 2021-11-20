@@ -54,31 +54,31 @@ export const getLike=(id)=>async(dispatch)=>{
 //     }
 // }
 
-export const addLike=(like,id)=>async(dispatch)=>{
-    const response=await fetch(`api/likes/${id}/`,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body:JSON.stringify(like)
-    });
-    if(response.ok){
-        const newLike=await response.json();
-        dispatch(addOne(newLike));
-    }
-}
+// export const addLike=(id)=>async(dispatch)=>{
+//     const response=await fetch(`api/likes/${likes.id}/`,{
+//         method:"POST",
+//         headers:{
+//             "Content-Type":"application/json"
+//         },
+//         body:JSON.stringify(likes)
+//     });
+//     if(response.ok){
+//         const newLike=await response.json();
+//         dispatch(addOne(newLike));
+//     }
+// }
 
-export const deleteLike=(like,id)=>async(dispatch)=>{
-    const response=await fetch(`api/likes/post/${id}/unlike`,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify(like)
-    });
-    if(response.ok){
-        const newLike=await response.json();
-        dispatch(deleteOne(newLike));
-    }
-}
+// export const deleteLike=(like,id)=>async(dispatch)=>{
+//     const response=await fetch(`api/likes/post/${id}`,{
+//         method:"POST",
+//         headers:{"Content-Type":"application/json"},
+//         body:JSON.stringify(like)
+//     });
+//     if(response.ok){
+//         const newLike=await response.json();
+//         dispatch(deleteOne(newLike));
+//     }
+// }
 
 
 const initialState={

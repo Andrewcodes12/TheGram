@@ -82,3 +82,43 @@ def delete_post(id):
     db.session.delete(post)
     db.session.commit()
     return jsonify(post.to_dict())
+
+
+#create a like on a post
+@post_routes.route('/like', methods=['POST'])
+# @login_required
+def like_post():
+    """
+    Likes a post
+    """
+    data= request.json
+    # form = PostForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     like = Like(
+    #         userId=form.data['userId'],
+    #         postId=id,
+
+    #     )
+    like = Like(
+        userId=data['user_id'],
+        postId=data['post_id'],
+    )
+    db.session.add(like)
+    db.session.commit()
+    return jsonify(like.to_dict())
+        # db.session.add(like)
+        # db.session.commit()
+        # return jsonify(like.to_dict())
+
+#delete a like on a post
+@post_routes.route('/unlike/<int:id>', methods=['DELETE'])
+# @login_required
+def unlike_post(id):
+    """
+    Unlikes a post
+    """
+    data= request.json
+    db.session.query(Like).filter(Like.postId == data['post_id']).delete()
+    db.session.commit()
+    return jsonify(id)

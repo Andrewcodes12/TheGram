@@ -13,7 +13,7 @@ import NewComment from "../NewComment/NewComment";
 import EditCaption from "../EditCaption/EditCaption";
 import EditComments from "../EditComments/EditComments";
 import DeleteComments from "../DeleteComments/DeleteComments";
-
+import Likes from "../Likes/Likes";
 
 
 const Post = () => {
@@ -47,6 +47,7 @@ const deleteAPost = (id) => {
                     <div className="post">
                 <img src={post.photoUrl} alt="" key={post.id} />
                     </div>
+                    <div classname="likes"> <Likes posts={post} postId={post.id}/> </div>
                     <div className="postCaption">
                 <h3 className="caption"> {post.caption} </h3>
                     </div>
