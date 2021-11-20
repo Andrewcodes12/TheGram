@@ -30,7 +30,7 @@ useEffect(() => {
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" value={caption} onChange={(e) => setCaption(e.target.value)} />
-                <button type="submit"><i class="fas fa-edit"></i></button>
+                <button type="submit"><i className="fas fa-edit"></i></button>
             </form>
 
         </div>

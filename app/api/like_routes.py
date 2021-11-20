@@ -22,14 +22,14 @@ def get_likes():
 
 
 # get all likes on a post
-@like_routes.route('/post/<int:id>', methods=['GET'])
-# @login_required
-def get_post_likes(id):
-    """
-    Gets all likes on a post
-    """
-    likes = Like.query.filter_by(postId=id)
-    return jsonify([like.to_dict() for like in likes])
+# @like_routes.route('/post/<int:id>', methods=['GET'])
+# # @login_required
+# def get_post_likes(id):
+#     """
+#     Gets all likes on a post
+#     """
+#     likes = Like.query.filter_by(postId=id)
+#     return jsonify([like.to_dict() for like in likes])
 
 
 # get all likes on a comment

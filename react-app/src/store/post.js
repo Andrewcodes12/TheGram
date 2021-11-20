@@ -75,15 +75,15 @@ export const removeLike = (postData) => async (dispatch) => {
     dispatch(removeLikes(data));
 }
 
-export const displayLike = (id) => async (dispatch) => {
-    const response = await fetch(`/api/likes/post/${id}/`, {
-        method: "GET",
-    });
-    if (response.ok) {
-        const like = await response.json();
-        dispatch(displayLikes(like));
-    }
-};
+// export const displayLike = (id) => async (dispatch) => {
+//     const response = await fetch(`/api/likes/post/${id}/`, {
+//         method: "GET",
+//     });
+//     if (response.ok) {
+//         const like = await response.json();
+//         dispatch(displayLikes(like));
+//     }
+// };
 
 
 

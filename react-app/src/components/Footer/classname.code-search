@@ -1,0 +1,135 @@
+# Query: classname
+# ContextLines: 1
+
+49 results - 6 files
+
+react-app/src/components/NavBar.js:
+  10          <li>
+  11:           <NavLink to='/' exact={true} activeClassName='active'>
+  12              Home
+
+  15          <li>
+  16:           <NavLink to='/login' exact={true} activeClassName='active'>
+  17              Login
+
+  20          <li>
+  21:           <NavLink to='/sign-up' exact={true} activeClassName='active'>
+  22              Sign Up
+
+  25          <li>
+  26:           <NavLink to='/users' exact={true} activeClassName='active'>
+  27              Users
+
+react-app/src/components/Footer/Index.js:
+   6    return (
+   7:       <div className="linksContainer">
+   8      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css"></link>
+   9:     <p className="theDevs">Created By: </p>
+  10      <a href="https://github.com/andrewcodes12">
+  11:     <i className="devicon-github-original"></i>
+  12      </a>
+
+  14      <a href="https://www.linkedin.com/in/andrewfava/">
+  15:     <i className="devicon-linkedin-plain"></i>
+  16      </a>
+
+react-app/src/components/Header/Header.js:
+   7      return (
+   8:     <div className="navBar">
+   9      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossOrigin="anonymous" />
+  10:     <div className="logo">
+  11      <div>
+
+  16    </div>
+  17:   <div className="navSearch">
+  18:   <i className="fas fa-search"></i>
+  19:     <input className="search" type="text" placeholder="Search"/>
+  20    </div>
+  21:   <div className="rightNav">
+  22        <NavLink to='/feed'>
+  23:   <i className="fas fa-home" id="home"></i>
+  24      </NavLink>
+  25      <NavLink to='/post/new/'>
+  26:     <i className="fas fa-upload" id="upload"></i>
+  27      </NavLink>
+  28        <NavLink to='/profile'>
+  29:       <i className="far fa-user-circle" id="profile"></i>
+  30          </NavLink>
+  31          <NavLink to='logout'>
+  32:       <i className="fas fa-sign-out-alt" id="logout"></i>
+  33          </NavLink>
+
+react-app/src/components/NewPost/NewPost.js:
+  39      return (
+  40:     <div className="inputBox">
+  41        <h1>Create A Post</h1>
+
+react-app/src/components/Posts/Post.js:
+  43              <Header />
+  44:             <div className="postContainer">
+  45              {post.map(post => (
+  46                  <div key={post.id}>
+  47:                     <div className="post">
+  48                  <img src={post.photoUrl} alt="" key={post.id} />
+  49                      </div>
+  50:                     <div className="likes"> <Likes posts={post} postId={post.id}/> </div>
+  51:                     <div className="postCaption">
+  52:                 <h3 className="caption"> {post.caption} </h3>
+  53                      </div>
+  54:                     <div className="postBtn">
+  55:                         <div className="postDeleteBtn">
+  56                  {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}><i class="fas fa-trash-alt"> </i></button> : null}
+  57                          </div>
+  58:                         <div className="postEditBtn">
+  59                  {post.userId === user.id ? <EditCaption post={post} /> : null}
+
+  61                      </div>
+  62:                     <div className="addComment">
+  63                  <NewComment post={post} />
+
+  66                  {comments.map(comment => (
+  67:                     <div key={comment.id} className="commentContainer">
+  68:                         <div className="comment">
+  69:                         {comment.postId === post.id && <div className="comments">{comment.body}</div>}
+  70                          </div>
+  71:                         <div className="commentBtn">
+  72:                             <div className="commentEditBtn">
+  73                          {comment.postId === post.id && comment.userId === user.id ? <EditComments comment={comment} /> : null}
+  74                              </div>
+  75:                             <div className="commentDeleteBtn">
+  76                          {comment.postId === post.id && comment.userId === user.id ? <DeleteComments comment={comment} />  : null}
+
+react-app/src/components/Splash/SplashPage.js:
+  46          <div>
+  47:             <div className="splash-page">
+  48:             <div className="splashImg"></div>
+  49:             <div className="loginContainer">
+  50:                 <div className="login">
+  51                  <form onSubmit={onLogin}>
+
+  56              </div>
+  57:             <h1 className="appName">The Gram</h1>
+  58:             <div className="emailInput">
+  59                  <input
+
+  66              </div>
+  67:             <div className="passwordInput">
+  68                  <input
+
+  75          </div>
+  76:         <button type='submit' className="loginBtn">Login</button>
+  77:         <div className="orContainer">
+  78            <div class="line">    </div>
+  79:           <div className="or"> OR </div>
+  80            <div class="line">    </div>
+  81          </div>
+  82:         <div className="demoBtnn">
+  83          {!user?
+  84:         <button className="demoBtn" onClick={demoLogin}>Demo Login</button>
+  85          : null}
+
+  87          </form>
+  88:         <div className="registerContainer">
+  89:           <p className="dontAccount">Don't have an account?</p>
+  90:           <a className="register" href="/sign-up">Sign up</a>
+  91            </div>

@@ -17,9 +17,9 @@ const Likes = ({posts,postId}) => {
 
     const [liked, setLiked] = useState(false)
 
-    useEffect(() => {
-        dispatch(displayLike(post[postId]?.id))
-    }, [])
+    // useEffect(() => {
+    //     dispatch(displayLike(post[postId]?.id))
+    // }, [])
 
     useEffect(() => {
         if (likes.find(like => like.postId === post[postId]?.id)) {
