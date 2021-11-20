@@ -32,6 +32,7 @@ const Likes = ({posts,postId}) => {
     const handleLike = () => {
         if (liked) {
             dispatch(removeLike({user_id: sessionUser.id, post_id: post[postId]?.id}))
+
         } else {
             dispatch(addLike({user_id: sessionUser.id, post_id: post[postId]?.id}))
         }
@@ -44,7 +45,6 @@ const Likes = ({posts,postId}) => {
             <button onClick={handleLike}>
                 {liked ? "Unlike" : "Like"}
             </button>
-            <span>{likes.length}</span>
         </div>
     )
 }
