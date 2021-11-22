@@ -5,7 +5,7 @@ import Header from '../Header/Header'
 
 import {getPosts} from '../../store/post'
 import {getComments} from '../../store/comment'
-import {getLikes} from '../../store/like'
+
 
 import Post from "../Posts/Post";
 
@@ -20,7 +20,6 @@ const dispatch = useDispatch()
 useEffect(() => {
     dispatch(getPosts())
     dispatch(getComments())
-    dispatch(getLikes())
 }, [dispatch])
 
 

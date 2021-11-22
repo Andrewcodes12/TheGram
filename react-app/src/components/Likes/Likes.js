@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { addLike, removeLike,displayLike,getPosts } from "../../store/post"
 
-
 const Likes = ({posts,postId}) => {
     const dispatch = useDispatch()
     const post = useSelector(state => state.post.posts)

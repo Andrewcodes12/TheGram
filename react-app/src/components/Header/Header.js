@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './header.css'
 
+import LogoutButton from '../auth/LogoutButton'
+
 const Header = () => {
 
     return (
@@ -28,8 +30,8 @@ const Header = () => {
       <NavLink to='/profile'>
       <i className="far fa-user-circle" id="profile"></i>
         </NavLink>
-        <NavLink to='logout'>
-      <i className="fas fa-sign-out-alt" id="logout"></i>
+        <NavLink to='/logout'>
+      <LogoutButton />
         </NavLink>
   </div>
 </div>

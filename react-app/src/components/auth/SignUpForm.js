@@ -21,6 +21,8 @@ const SignUpForm = () => {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data)
+      } else{
+        setErrors(["Password must match Repeat Password"])
       }
     }
   };
