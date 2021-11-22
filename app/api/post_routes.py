@@ -11,7 +11,7 @@ post_routes = Blueprint('posts', __name__)
 
 # GET ALL POSTS
 @post_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_posts():
     """
     Gets all posts
@@ -21,7 +21,7 @@ def get_posts():
 
 # GET POST BY ID
 @post_routes.route('/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_post(id):
     """
     Gets a single post
@@ -31,7 +31,7 @@ def get_post(id):
 
 # ADD A POST
 @post_routes.route('/new/', methods=['POST'])
-# @login_required
+@login_required
 def create_post():
     """
     Creates a post
@@ -52,7 +52,7 @@ def create_post():
 
 #EDIT A POST
 @post_routes.route('/<int:id>/edit/', methods=['PUT'])
-# @login_required
+@login_required
 def edit_post(id):
     """
     Edits a post
@@ -70,7 +70,7 @@ def edit_post(id):
 
 # DELETE A SINGLE POST
 @post_routes.route('/<int:id>/delete/', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_post(id):
     """
     Deletes a post
@@ -86,7 +86,7 @@ def delete_post(id):
 
 #create a like on a post
 @post_routes.route('/like', methods=['POST'])
-# @login_required
+@login_required
 def like_post():
     """
     Likes a post
@@ -113,7 +113,7 @@ def like_post():
 
 #delete a like on a post
 @post_routes.route('/unlike/<int:id>', methods=['DELETE'])
-# @login_required
+@login_required
 def unlike_post(id):
     """
     Unlikes a post

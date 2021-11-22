@@ -12,7 +12,7 @@ like_routes = Blueprint('likes', __name__)
 
 # GET ALL LIKES
 @like_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_likes():
     """
     Gets all likes
@@ -34,7 +34,7 @@ def get_likes():
 
 # get all likes on a comment
 @like_routes.route('/comment/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_comment_likes(id):
     """
     Gets all likes on a comment
@@ -45,7 +45,7 @@ def get_comment_likes(id):
 
 # GET LIKE BY ID
 @like_routes.route('/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_like(id):
     """
     Gets a single like
