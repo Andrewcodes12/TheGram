@@ -82,14 +82,14 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        {/* <label>Repeat Password</label>
+        <label>Repeat Password</label>
         <input
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           // required={true}
-        ></input> */}
+        ></input>
       </div>
       <button type='submit'>Sign Up</button>
     </form>

@@ -40,12 +40,12 @@ def password_check(form, field):
         raise ValidationError(
             'Pasword must contain one number.')
 
-# def repeat_check(form, field):
-#     password = field.data
-#     repeat_password = field.data
+def repeat_check(form, field):
+    password = field.data
+    repeatPassword = field.data
 
-#     if password != repeat_password:
-#         raise ValidationError('Passwords do not match.')
+    if password != repeatPassword:
+        raise ValidationError('Passwords do not match.')
 
 
 
@@ -54,4 +54,4 @@ class SignUpForm(FlaskForm):
         'username', validators=[ username_exists])
     email = StringField('email', validators=[ user_exists])
     password = StringField('password', validators=[password_check])
-    # repeat_password = StringField('repeat_password', validators=[repeat_check])
+    repeatPassword = StringField('repeatPassword', validators=[repeat_check])
