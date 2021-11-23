@@ -11,7 +11,7 @@ const dispatch = useDispatch()
 
 const [photoUrl, setPhotoUrl] = useState('')
 const [caption, setCaption] = useState('')
-
+const [valErrors , setValErrors] = useState([])
 
 const sessionUser = useSelector(state => state.session.user);
 
@@ -20,9 +20,24 @@ const reset = () => {
     setCaption('')
 }
 
+
+const validatePost = () => {
+  const errors = [];
+  if (!photoUrl) {
+    errors.push("Please provide an image URL for your post.");
+  }
+  if (caption.length === 0) {
+    errors.push("Please provide a caption for your post");
+  }
+  setValErrors(errors);
+  return errors;
+};
+
 const handleSubmit = (e) => {
     e.preventDefault()
 
+  const errs = validatePost()
+  if (!errs.length) {
     const newPost = {
         photoUrl,
         caption,
@@ -31,8 +46,8 @@ const handleSubmit = (e) => {
 
     dispatch(addPost(newPost))
     reset()
+  }
 }
-
 
 
 
@@ -40,6 +55,11 @@ const handleSubmit = (e) => {
     <div className="inputBox">
       <h1>Create A Post</h1>
       <form onSubmit={handleSubmit}>
+      <ul className="errors">
+          {valErrors.map((valError) => (
+            <li key={valError}>{valError}</li>
+          ))}
+        </ul>
         <input
           type="text"
           onChange={(e) => setCaption(e.target.value)}
@@ -54,7 +74,6 @@ const handleSubmit = (e) => {
           placeholder="Image URL"
           name="imageUrl"
         />
-
         <button type="submit">Submit</button>
       </form>
     </div>
