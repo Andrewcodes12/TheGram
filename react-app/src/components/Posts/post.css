@@ -39,5 +39,6 @@
 
 .postDeleteBtn{
     display: flex;
-    
+    float: right;
+    margin-top: -55px;
 }
