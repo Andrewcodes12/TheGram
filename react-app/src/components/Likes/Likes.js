@@ -42,7 +42,8 @@ const Likes = ({posts,postId}) => {
     return (
         <div>
             <button onClick={handleLike}>
-                {liked ? "Unlike" : "Like"}
+                {liked ? <i class="fas fa-heart"></i>: <i class="far fa-heart"></i>}
+
             </button>
         </div>
     )
