@@ -1,114 +1,38 @@
-.body{
-    padding-top: 50px;
-}
-
 .postContainer{
-    padding: 90px 10px 0px 10px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    width: 1025px;
-    margin: 0 auto;
-    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 75px;
+
 }
 
+.commentContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .post > img{
-    width: 100%;
-    height: 100%;
-    max-height: 785px;
-    object-fit: cover;
-    cursor: pointer;
+    border: 1px solid #D4D4D4;
+    display: block;
+    width: 700px;
+    height: 826px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.likes{
+    display: flex;
+    margin-top: -35px;
 }
 
 .postCaption{
-    margin: 0 15px;
-    font-weight: bold;
-}
-
-
-.commentContainer{
-    width: 80%;
-    height: 100%;
-    border: none;
-    outline: none;
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 14px;
-}
-
-.addComment{
-    min-height: 40px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    max-height: max-content;
-    margin-top: 15px;
-}
-
-.addComment input{
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.addComment textarea{
-    flex-grow: 1;
-    resize: none;
-    width: 100%;
-    border: none;
-    height: 40px;
-    border-top: 1px solid rgba(0, 0, 0, 0.075);
-    box-sizing: border-box;
-    padding: 10px 12.5px;
-    max-height: max-content;
-}
-
-
-.addComment button{
-    height: 40px;
-    position: absolute;
-    right: 12.5px;
-    background-color: transparent;
-    border: none;
-    font-weight: 500;
-    color: rgba(0, 149, 246, 0.3);
-}
-
-
-.addComment textarea::-webkit-scrollbar {
-    display: none;
-}
-
-
-.addComment textarea:focus-visible {
-    outline: none;
-}
-
-.addComment textarea:focus-visible ~ button {
-    outline: none;
-    color: #0095f6;
-    cursor: pointer;
-}
-
-.comments{
-    display: flex;
-    align-items: center;
-    transition: background-color 0.2s;
-    justify-content: space-between;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    padding: 2.5px 0;
-}
-
-.comments:hover{
-    background: rgba(0, 0, 0, .05);
-}
-.comment{
-    padding-left: 20px ;
-    display: flex;
-    gap: 5px;
-}
-
-.commentBtn{
- display:flex;
-justify-content: flex-end;
+    margin-top: -17px;
 }
