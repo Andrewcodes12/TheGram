@@ -8,6 +8,7 @@ const EditComments = ({comment}) => {
 const dispatch = useDispatch()
 
 const [comments, setComment] = useState(comment.body)
+const [isClicked, setIsClicked] = useState(false);
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -16,7 +17,11 @@ const handleSubmit = async (e) => {
     if(editedComment){
         console.log('comment updated')
     }
+    setIsClicked(false)
 }
+
+
+
 
 
 useEffect(() => {
@@ -26,10 +31,18 @@ useEffect(() => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+             {/* <form onSubmit={handleSubmit}>
                 <input type="text" value={comments} onChange={(e) => setComment(e.target.value)} />
                 <button type="submit"><i className="fas fa-edit"></i></button>
+            </form> */}
+        {isClicked ? (
+            <form onSubmit={handleSubmit}>
+                <input type="text" value={comments} onChange={(e) => setComment(e.target.value)} />
+                <button type="submit">submit</button>
             </form>
+        ) : (
+            <i className="fas fa-edit"onClick={() => setIsClicked(true)}></i>
+        )}
         </div>
     )
 }

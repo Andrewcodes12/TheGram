@@ -70,7 +70,7 @@ const deleteAPost = (id) => {
                         </div>
                         <div className="commentBtn">
                             <div className="commentEditBtn">
-                        {comment.postId === post.id && comment.userId === user.id ? <EditComments comment={comment} /> : null}
+                        {comment.postId === post.id && comment.userId === user.id ? <EditComments comment={comment} />: null}
                             </div>
                             <div className="commentDeleteBtn">
                         {comment.postId === post.id && comment.userId === user.id ? <DeleteComments comment={comment} />  : null}
