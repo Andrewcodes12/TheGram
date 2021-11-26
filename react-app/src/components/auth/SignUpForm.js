@@ -28,6 +28,7 @@ const SignUpForm = () => {
     if (password !== repeatPassword) {
       setErrors(["Password must match Repeat Password"])
     }
+
   };
 
   const updateUsername = (e) => {
