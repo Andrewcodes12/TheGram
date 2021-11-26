@@ -50,4 +50,4 @@ class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[ username_exists])
     email = StringField('email', validators=[ user_exists])
-    password = StringField('password', validators=[password_check])
+    password = StringField('password', validators=[password_check,Email()])
