@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 
 import { useDispatch,useSelector } from 'react-redux'
-
+import { useHistory } from 'react-router'
 import { addPost } from '../../store/post'
 
 import './newPost.css'
 
 const NewPost = () => {
 const dispatch = useDispatch()
+const history = useHistory()
 
 const [photoUrl, setPhotoUrl] = useState('')
 const [caption, setCaption] = useState('')
@@ -51,6 +52,7 @@ const handleSubmit = (e) => {
 
     dispatch(addPost(newPost))
     reset()
+    history.push('/feed')
   }
 }
 

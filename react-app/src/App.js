@@ -48,6 +48,8 @@ function App() {
         </Route>
         <ProtectedRoute path='/feed' exact={true} >
           <Feed />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/new/' exact={true} >
           <NewPost/>
         </ProtectedRoute>
       </Switch>
