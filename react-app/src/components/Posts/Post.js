@@ -64,7 +64,7 @@ const deleteAPost = (id) => {
                     </div>
                     </div>
                     <div className="addComment">
-                <NewComment post={post} />
+                        <NewComment post={post} />
                     </div>
 
                 {comments.map(comment => (
