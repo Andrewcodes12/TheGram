@@ -45,7 +45,7 @@ const handleSubmit = (e) => {
         photoUrl,
         caption,
         userId:sessionUser.id,
-        username:sessionUser.username,
+        userName:sessionUser.username,
         profileImage:sessionUser.profileImage
     }
 
