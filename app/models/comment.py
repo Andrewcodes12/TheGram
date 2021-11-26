@@ -8,6 +8,7 @@ class Comment(db.Model):
     body= db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer(),db.ForeignKey('users.id'), nullable=False)
     postId = db.Column(db.Integer(), db.ForeignKey('posts.id'))
+    userName= db.Column(db.String(255))
 
     comment_post=db.relationship('User', backref='comments', lazy=True)
     # post_a_comment= db.relationship('Post', backref=db.backref('comment_post'), foreign_keys='Post.post_id', cascade = "all,delete")
@@ -18,5 +19,6 @@ class Comment(db.Model):
             'id': self.id,
             'body': self.body,
             'userId': self.user_id,
-            'postId': self.postId
+            'postId': self.postId,
+            'userName': self.userName
         }

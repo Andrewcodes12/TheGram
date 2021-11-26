@@ -46,7 +46,8 @@ def create_comment():
         comment = Comment(
             body=form.data['body'],
             user_id=form.data['user_id'],
-            postId=form.data['postId']
+            postId=form.data['postId'],
+            userName=form.data['userName']
         )
         db.session.add(comment)
         db.session.commit()

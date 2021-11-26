@@ -16,7 +16,7 @@ def get_posts():
     """
     Gets all posts
     """
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.created_at.desc()).all()
     return jsonify([post.to_dict() for post in posts])
 
 # GET POST BY ID

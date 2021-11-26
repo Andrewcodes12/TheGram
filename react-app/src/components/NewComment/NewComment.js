@@ -21,7 +21,8 @@ const handleSubmit = (e) => {
     const newComment = {
         body,
         user_id:sessionUser.id,
-        postId:post.id
+        postId:post.id,
+        userName:sessionUser.username,
     }
 
     dispatch(addComment(newComment))

@@ -54,14 +54,14 @@ const deleteAPost = (id) => {
                     <div className="likes"> <Likes posts={post} postId={post.id}/> </div>
                     <div className="postCaption">
                 <h3 className="caption"> {post.caption} </h3>
-                    </div>
                     <div className="postBtn">
+                    <div className="postEditBtn">
+                {post.userId === user.id ? <EditCaption post={post} /> : null}
+                        </div>
                         <div className="postDeleteBtn">
                 {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}><i className="fas fa-trash-alt"> </i></button> : null}
                         </div>
-                        <div className="postEditBtn">
-                {post.userId === user.id ? <EditCaption post={post} /> : null}
-                        </div>
+                    </div>
                     </div>
                     <div className="addComment">
                 <NewComment post={post} />
@@ -70,7 +70,7 @@ const deleteAPost = (id) => {
                 {comments.map(comment => (
                     <div key={comment.id} className="commentContainer">
                         <div className="comment">
-                        {comment.postId === post.id && <div className="comments">{comment.body}</div>}
+                        {comment.postId === post.id && <div className="comments">{comment.userName} : {comment.body}</div>}
                         </div>
                         <div className="commentBtn">
                             <div className="commentEditBtn">

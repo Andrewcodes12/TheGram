@@ -9,3 +9,4 @@ class CommentForm(FlaskForm):
     body = StringField('Comment', validators=[DataRequired()])
     user_id = IntegerField('User ID')
     postId = StringField('Post ID')
+    userName = StringField('User Name')
