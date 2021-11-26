@@ -12,3 +12,5 @@ class PostForm(FlaskForm):
                'URL must be a valid link')])
     caption = StringField('caption')
     userId = StringField('userId')
+    userName = StringField('username')
+    profileImage = StringField('userProfilePic')

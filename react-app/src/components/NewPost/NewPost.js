@@ -44,7 +44,9 @@ const handleSubmit = (e) => {
     const newPost = {
         photoUrl,
         caption,
-        userId:sessionUser.id
+        userId:sessionUser.id,
+        username:sessionUser.username,
+        profileImage:sessionUser.profileImage
     }
 
     dispatch(addPost(newPost))

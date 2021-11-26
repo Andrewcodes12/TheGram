@@ -12,7 +12,8 @@ class Post(db.Model):
     likes = db.Column(db.Integer, default=1)
     created_at = db.Column(db.DateTime)
     userId = db.Column(db.Integer(),db.ForeignKey('users.id'), nullable=False)
-
+    userName = db.Column(db.String(40), nullable=True)
+    profileImage=db.Column( db.String)
 
     # like= db.relationship('Like', backref='post',cascade = "all,delete")
     comment_post=db.relationship('Comment', backref='post_a_comment',cascade = "all,delete")
@@ -24,5 +25,7 @@ class Post(db.Model):
             'photoUrl': self.photoUrl,
             'caption': self.caption,
             'likes': self.likes,
-            'userId': self.userId
+            'userId': self.userId,
+            'username': self.userName,
+            'profileImage':self.profileImage,
         }

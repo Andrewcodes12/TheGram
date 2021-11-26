@@ -24,8 +24,7 @@ def seed_users():
                  profileImage='https://i.imgur.com/JeJrTZr.jpeg')
 
     zark = User(username='Zark Muckerberg', password='zark', email='u1@aol.com',
-              following=[bobbie, Jylo, srad, alvin],
-              profileImage='https://i.imgur.com/Kkt2Fpe.jpeg')
+              following=[bobbie, Jylo, srad, alvin])
 
     melon = User(username='Melon Eusk', password='melon', email='u2@aol.com',
               following=[bobbie, Jylo, srad, alvin, zark],

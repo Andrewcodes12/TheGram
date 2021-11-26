@@ -45,6 +45,10 @@ const deleteAPost = (id) => {
             {post.map(post => (
                 <div key={post.id}>
                     <div className="post">
+                    <div className="postHeader">
+                        <img src={post.profileImage} alt="profile" className="profileImage" />
+                        <h1>{post.username}</h1>
+                    </div>
                 <img src={post.photoUrl} alt="" key={post.id} />
                     </div>
                     <div className="likes"> <Likes posts={post} postId={post.id}/> </div>
