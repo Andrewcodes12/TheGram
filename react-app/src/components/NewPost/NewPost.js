@@ -28,7 +28,10 @@ const validatePost = () => {
   }
   if (caption.length === 0) {
     errors.push("Please provide a caption for your post");
+  } else if(!photoUrl.includes("https://") || photoUrl.length < 9) {
+    errors.push("Photo Url must include 'https://' followed by image link ");
   }
+
   setValErrors(errors);
   return errors;
 };
