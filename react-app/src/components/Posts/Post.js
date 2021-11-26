@@ -47,7 +47,7 @@ const deleteAPost = (id) => {
                     <div className="post">
                     <div className="postHeader">
                         <img src={post.profileImage} alt="profile" className="profileImage" />
-                        <h4 className="postUsername">{post.username}</h4>
+                        <h4 className="postUser">{post.username}</h4>
                     </div>
                 <img src={post.photoUrl} alt="" key={post.id} />
                     </div>

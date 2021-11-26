@@ -52,7 +52,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: -20px;
+    
 }
 
 .profileImage{
@@ -74,4 +74,11 @@
     font-weight: 500;
     font-size: 15px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.commentBtn{
+    cursor: pointer;
+}
+
+.commentDeleteBtn{
+    cursor: pointer;
 }

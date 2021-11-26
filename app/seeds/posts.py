@@ -15,7 +15,7 @@ def seed_posts():
                  caption='Your neighborhood treat dealer', likes=1, created_at=f'{time}',userName='Srad Bimpson',profileImage='https://i.imgur.com/7wQ61EW.jpeg')
     db.session.add(post3)
     post4 = Post(userId=11, photoUrl='https://i.imgur.com/n1aIhF3.jpeg',
-                 caption='TBT', likes=3, created_at=f'{time}',userName='Andrew Fava',
+                 caption='TBT', likes=3, created_at=f'{time}',userName='Demo',
         profileImage='https://i.imgur.com/NQz9NDx.jpeg')
     db.session.add(post4)
     post5 = Post(userId=2, photoUrl='https://i.imgur.com/bC7Rb21.jpeg',
@@ -33,7 +33,7 @@ def seed_posts():
               profileImage='https://i.imgur.com/lb6j2Z5.jpeg')
     db.session.add(post8)
     post9 = Post(userId=11, photoUrl='https://i.imgur.com/BA2hH3f.jpeg',
-                 caption='Do or do not, there is no try', likes=0, created_at=f'{time}',userName='Andrew Fava',
+                 caption='Do or do not, there is no try', likes=0, created_at=f'{time}',userName='Demo',
         profileImage='https://i.imgur.com/NQz9NDx.jpeg')
     db.session.add(post9)
     post10 = Post(userId=10, photoUrl='https://i.imgur.com/JJO2P6U.jpeg',
@@ -48,7 +48,7 @@ def seed_posts():
                   caption='Really cool', likes=1, created_at=f'{time}',userName='Bobbie Light',profileImage='https://i.imgur.com/I7Ul8TY.jpeg')
     db.session.add(post12)
     post13 = Post(userId=11, photoUrl='https://mymodernmet.com/wp/wp-content/uploads/2019/07/will-burrard-lucas-beetlecam-23-1024x683.jpg',
-                  caption='Take me back', likes=2, created_at=f'{time}',userName='Andrew Fava',
+                  caption='Take me back', likes=2, created_at=f'{time}',userName='Demo',
         profileImage='https://i.imgur.com/NQz9NDx.jpeg')
     db.session.add(post13)
     post14 = Post(userId=5, photoUrl='https://i.imgur.com/wgxW0KI.jpeg',
@@ -70,7 +70,7 @@ def seed_posts():
                   caption='Rate my setup', likes=1, created_at=f'{time}',userName='Bobbie Light',profileImage='https://i.imgur.com/I7Ul8TY.jpeg')
     db.session.add(post19)
     post20 = Post(userId=11, photoUrl='https://i.imgur.com/C5BscRr.jpeg',
-                  caption='What do you think?', likes=3, created_at=f'{time}',userName='Andrew Fava',
+                  caption='What do you think?', likes=3, created_at=f'{time}',userName='Demo',
         profileImage='https://i.imgur.com/NQz9NDx.jpeg')
     db.session.add(post20)
     post21 = Post(userId=8, photoUrl='https://i.imgur.com/5EXmMim.jpeg',
@@ -86,7 +86,7 @@ def seed_posts():
               profileImage='https://i.imgur.com/1fHjKze.jpeg')
     db.session.add(post23)
     post24 = Post(userId=11, photoUrl='https://i.imgur.com/ZjU14fN.jpeg',
-                  caption='On the beach!', likes=3, created_at=f'{time}',userName='Andrew Fava',
+                  caption='On the beach!', likes=3, created_at=f'{time}',userName='Demo',
         profileImage='https://i.imgur.com/NQz9NDx.jpeg')
     db.session.add(post24)
     post25 = Post(userId=6, photoUrl='https://i.imgur.com/O2IkUmb.jpeg',
