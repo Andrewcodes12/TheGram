@@ -56,8 +56,10 @@ const deleteAPost = (id) => {
                     <div className="postCaption">
                 <h3 className="caption"> {post.caption} </h3>
                     <div className="postBtn">
+                        <div>
                     <div className="postEditBtn">
                 {post.userId === user.id ? <EditCaption post={post} /> : null}
+                        </div>
                         </div>
                         <div className="postDeleteBtn">
                 {post.userId === user.id ? <button onClick={() => deleteAPost(post.id)}><i className="fas fa-trash-alt"> </i></button> : null}
