@@ -50,7 +50,8 @@ const deleteAPost = (id) => {
                         <h4 className="postUser">{post.username}</h4>
                     </div>
                 <img src={post.photoUrl} alt="" key={post.id} />
-                    </div>
+
+                    <div className="postContent">
                     <div className="likes"> <Likes posts={post} postId={post.id}/> </div>
                     <div className="postCaption">
                 <h3 className="caption"> {post.caption} </h3>
@@ -65,6 +66,8 @@ const deleteAPost = (id) => {
                     </div>
                     <div className="addComment">
                         <NewComment post={post} />
+
+                    </div>
                     </div>
 
                 {comments.map(comment => (
@@ -82,10 +85,14 @@ const deleteAPost = (id) => {
                             </div>
                         </div>
                     </div>
+
               ))}
+               </div>
                 </div>
                 ))}
                 </div>
+
+
         </div>
 
     )

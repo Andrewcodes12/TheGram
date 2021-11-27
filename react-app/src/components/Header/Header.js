@@ -16,10 +16,10 @@ const Header = () => {
     </NavLink>
     </div>
   </div>
-  <div className="navSearch">
+  {/* <div className="navSearch">
   <i className="fas fa-search"></i>
     <input className="search" type="text" placeholder="Search"/>
-  </div>
+  </div> */}
   <div className="rightNav">
       <NavLink to='/feed'>
   <i className="fas fa-home" id="home"></i>
@@ -27,9 +27,9 @@ const Header = () => {
     <NavLink to='/post/new/'>
     <i className="fas fa-upload" id="upload"></i>
     </NavLink>
-      <NavLink to='/profile'>
+      {/* <NavLink to='/profile'>
       <i className="far fa-user-circle" id="profile"></i>
-        </NavLink>
+        </NavLink> */}
         <NavLink to='/logout'>
       <LogoutButton />
         </NavLink>
