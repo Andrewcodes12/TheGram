@@ -1,6 +1,16 @@
+.comment-input{
+width: 80%;
+}
+
 .submitComment{
-    display: flex;
-   
+    display: inline-flex;
+    position: relative;
+    float: right;
+    margin-bottom: -20px;
+    margin-top: -20px;
+    color: lightblue;
+}
 
-
+.submitComment:hover{
+    color: rgb(0, 162, 255);
 }

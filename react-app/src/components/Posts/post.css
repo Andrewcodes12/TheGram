@@ -17,8 +17,9 @@
 
 .post > img{
 width: 100%;
-height: 500px;
+height: 600px;
 object-fit: contain;
+
 }
 
 .postCaption{
@@ -82,7 +83,7 @@ object-fit: contain;
     justify-content: center;
     align-items: center;
 
-} 
+}
 
  .commentBtn{
     display: inline-flex;
@@ -103,6 +104,8 @@ object-fit: contain;
 .comments{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -112,8 +115,6 @@ object-fit: contain;
 }
 
 .addComment{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+margin-top: -50px;
+
 }

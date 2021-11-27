@@ -65,13 +65,16 @@ const handleSubmit = (e) => {
                 ))}
             </ul>
             <input
+                className="comment-input"
                 type="text"
                 onChange={(e) => setBody(e.target.value)}
                 value={body}
                 placeholder="Add Comment..."
                 name="body"
             />
-            <button type="submit" className="submitComment">Submit</button>
+            <div>
+            <button type="submit" className="submitComment">Submit Comment</button>
+            </div>
         </form>
         </div>
     )
