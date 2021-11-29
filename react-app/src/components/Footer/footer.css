@@ -5,9 +5,9 @@
     justify-content: center;
     text-align: center;
     width: 300px;
-    position: absolute;
+    position: fixed;
     bottom: -15px;
-    left: 30%;
+    left: 35%;
 }
 
 .theDevs {

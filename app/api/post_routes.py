@@ -11,17 +11,17 @@ post_routes = Blueprint('posts', __name__)
 
 # GET ALL POSTS
 @post_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_posts():
     """
     Gets all posts
     """
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.created_at.desc()).all()
     return jsonify([post.to_dict() for post in posts])
 
 # GET POST BY ID
 @post_routes.route('/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_post(id):
     """
     Gets a single post
@@ -31,7 +31,7 @@ def get_post(id):
 
 # ADD A POST
 @post_routes.route('/new/', methods=['POST'])
-# @login_required
+@login_required
 def create_post():
     """
     Creates a post
@@ -43,7 +43,9 @@ def create_post():
         post = Post(
             photoUrl=form.data['photoUrl'],
             caption=form.data['caption'],
-            userId=form.data['userId']
+            userId=form.data['userId'],
+            userName=form.data['userName'],
+            profileImage=form.data['profileImage'],
         )
         db.session.add(post)
         db.session.commit()
@@ -52,7 +54,7 @@ def create_post():
 
 #EDIT A POST
 @post_routes.route('/<int:id>/edit/', methods=['PUT'])
-# @login_required
+@login_required
 def edit_post(id):
     """
     Edits a post
@@ -70,7 +72,7 @@ def edit_post(id):
 
 # DELETE A SINGLE POST
 @post_routes.route('/<int:id>/delete/', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_post(id):
     """
     Deletes a post
@@ -82,3 +84,43 @@ def delete_post(id):
     db.session.delete(post)
     db.session.commit()
     return jsonify(post.to_dict())
+
+
+#create a like on a post
+@post_routes.route('/like', methods=['POST'])
+@login_required
+def like_post():
+    """
+    Likes a post
+    """
+    data= request.json
+    # form = PostForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
+    # if form.validate_on_submit():
+    #     like = Like(
+    #         userId=form.data['userId'],
+    #         postId=id,
+
+    #     )
+    like = Like(
+        userId=data['user_id'],
+        postId=data['post_id'],
+    )
+    db.session.add(like)
+    db.session.commit()
+    return jsonify(like.to_dict())
+        # db.session.add(like)
+        # db.session.commit()
+        # return jsonify(like.to_dict())
+
+#delete a like on a post
+@post_routes.route('/unlike/<int:id>', methods=['DELETE'])
+@login_required
+def unlike_post(id):
+    """
+    Unlikes a post
+    """
+    data= request.json
+    db.session.query(Like).filter(Like.postId == data['post_id']).delete()
+    db.session.commit()
+    return jsonify(id)

@@ -75,9 +75,9 @@ const SplashPage = () => {
         </div>
         <button type='submit' className="loginBtn">Login</button>
         <div className="orContainer">
-          <div class="line">    </div>
+          <div className="line">    </div>
           <div className="or"> OR </div>
-          <div class="line">    </div>
+          <div className="line">    </div>
         </div>
         <div className="demoBtnn">
         {!user?
@@ -87,7 +87,7 @@ const SplashPage = () => {
         </form>
         <div className="registerContainer">
           <p className="dontAccount">Don't have an account?</p>
-          <a className="register" href="/sign-up">Sign up</a>
+          <a className="register" href="/signup">Sign up</a>
           </div>
             </div>
 

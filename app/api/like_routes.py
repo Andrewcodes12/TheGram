@@ -12,7 +12,7 @@ like_routes = Blueprint('likes', __name__)
 
 # GET ALL LIKES
 @like_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_likes():
     """
     Gets all likes
@@ -22,19 +22,19 @@ def get_likes():
 
 
 # get all likes on a post
-@like_routes.route('/post/<int:id>', methods=['GET'])
-# @login_required
-def get_post_likes(id):
-    """
-    Gets all likes on a post
-    """
-    likes = Like.query.filter_by(postId=id)
-    return jsonify([like.to_dict() for like in likes])
+# @like_routes.route('/post/<int:id>', methods=['GET'])
+# # @login_required
+# def get_post_likes(id):
+#     """
+#     Gets all likes on a post
+#     """
+#     likes = Like.query.filter_by(postId=id)
+#     return jsonify([like.to_dict() for like in likes])
 
 
 # get all likes on a comment
 @like_routes.route('/comment/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_comment_likes(id):
     """
     Gets all likes on a comment
@@ -45,7 +45,7 @@ def get_comment_likes(id):
 
 # GET LIKE BY ID
 @like_routes.route('/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_like(id):
     """
     Gets a single like
@@ -55,36 +55,36 @@ def get_like(id):
 
 
 # LIKE A POST
-@like_routes.route('/<int:id>', methods=['POST'])
-# @login_required
-def like_post(id):
-    """
-    Likes a post
-    """
-    user_id = current_user.get_id()
-    post = Post.query.get(id)
-    post.likes += 1
-    like = Like(
-        userId=user_id,
-        postId=post,
-        count=1
-    )
-    db.session.add(like)
-    db.session.commit()
-    return like.to_dict()
+# @like_routes.route('/<int:id>/like', methods=['POST'])
+# # @login_required
+# def like_post(id):
+#     """
+#     Likes a post
+#     """
+#     user_id = current_user.get_id()
+#     post = Post.query.get(id)
+#     post.likes += 1
+#     like = Like(
+#         userId=user_id,
+#         postId=post,
+#         count= post.likes
+#     )
+#     db.session.add(like)
+#     db.session.commit()
+#     return like.to_dict()
 
 
 # UNLIKE A POST
-@like_routes.route('/post/<int:id>/unlike/', methods=['POST'])
-# @login_required
-def unlike_post(id):
-    """
-    Unlikes a post
-    """
-    user_id = current_user.get_id()
-    post = Post.query.get(id)
-    post.likes -= 1
-    like = Like.query.filter_by(userId=user_id, postId=id).first()
-    db.session.delete(like)
-    db.session.commit()
-    return like.to_dict()
+# @like_routes.route('/<int:id>/unlike', methods=['DELETE'])
+# # @login_required
+# def unlike_post(id):
+#     """
+#     Unlikes a post
+#     """
+#     user_id = current_user.get_id()
+#     post = Post.query.get(id)
+#     post.likes -= 1
+#     like = Like.query.filter_by(userId=user_id, postId=id).first()
+#     db.session.delete(like)
+#     db.session.commit()
+#     return like.to_dict()

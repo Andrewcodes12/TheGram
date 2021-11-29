@@ -11,7 +11,7 @@ import { authenticate } from './store/session';
 import SplashPage from './components/Splash/SplashPage';
 import Feed from './components/Feed/Feed';
 import NewPost from './components/NewPost/NewPost';
-
+import Footer from './components/Footer/Index';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,21 +34,25 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
-        <Route path='/sign-up' exact={true}>
+        <Route path='/signup' exact={true}>
           <SignUpForm />
+          <Footer />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        {/* <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>
         <ProtectedRoute path='/feed' exact={true} >
           <Feed />
+        </ProtectedRoute>
+        <ProtectedRoute path='/post/new/' exact={true} >
           <NewPost/>
+          <Footer />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

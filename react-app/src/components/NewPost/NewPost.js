@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
 
 import { useDispatch,useSelector } from 'react-redux'
-
+import { useHistory } from 'react-router'
 import { addPost } from '../../store/post'
 
 import './newPost.css'
 
 const NewPost = () => {
 const dispatch = useDispatch()
+const history = useHistory()
 
 const [photoUrl, setPhotoUrl] = useState('')
 const [caption, setCaption] = useState('')
-
+const [valErrors , setValErrors] = useState([])
 
 const sessionUser = useSelector(state => state.session.user);
 
@@ -20,19 +21,40 @@ const reset = () => {
     setCaption('')
 }
 
+
+const validatePost = () => {
+  const errors = [];
+  if (!photoUrl) {
+    errors.push("Please provide an image URL for your post.");
+  }
+  if (caption.length === 0) {
+    errors.push("Please provide a caption for your post");
+  } else if(!photoUrl.includes("https://") || photoUrl.length < 10) {
+    errors.push("Photo Url must include 'https://' followed by image link ");
+  }
+
+  setValErrors(errors);
+  return errors;
+};
+
 const handleSubmit = (e) => {
     e.preventDefault()
 
+  const errs = validatePost()
+  if (!errs.length) {
     const newPost = {
         photoUrl,
         caption,
-        userId:sessionUser.id
+        userId:sessionUser.id,
+        userName:sessionUser.username,
+        profileImage:sessionUser.profileImage
     }
 
     dispatch(addPost(newPost))
     reset()
+    history.push('/feed')
+  }
 }
-
 
 
 
@@ -40,6 +62,11 @@ const handleSubmit = (e) => {
     <div className="inputBox">
       <h1>Create A Post</h1>
       <form onSubmit={handleSubmit}>
+      <ul className="errors">
+          {valErrors.map((valError) => (
+            <li key={valError}>{valError}</li>
+          ))}
+        </ul>
         <input
           type="text"
           onChange={(e) => setCaption(e.target.value)}
@@ -54,7 +81,6 @@ const handleSubmit = (e) => {
           placeholder="Image URL"
           name="imageUrl"
         />
-
         <button type="submit">Submit</button>
       </form>
     </div>

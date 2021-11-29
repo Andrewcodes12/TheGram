@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './header.css'
 
+import LogoutButton from '../auth/LogoutButton'
+
 const Header = () => {
 
     return (
@@ -14,10 +16,10 @@ const Header = () => {
     </NavLink>
     </div>
   </div>
-  <div className="navSearch">
+  {/* <div className="navSearch">
   <i className="fas fa-search"></i>
     <input className="search" type="text" placeholder="Search"/>
-  </div>
+  </div> */}
   <div className="rightNav">
       <NavLink to='/feed'>
   <i className="fas fa-home" id="home"></i>
@@ -25,11 +27,11 @@ const Header = () => {
     <NavLink to='/post/new/'>
     <i className="fas fa-upload" id="upload"></i>
     </NavLink>
-      <NavLink to='/profile'>
+      {/* <NavLink to='/profile'>
       <i className="far fa-user-circle" id="profile"></i>
-        </NavLink>
-        <NavLink to='logout'>
-      <i className="fas fa-sign-out-alt" id="logout"></i>
+        </NavLink> */}
+        <NavLink to='/logout'>
+      <LogoutButton />
         </NavLink>
   </div>
 </div>

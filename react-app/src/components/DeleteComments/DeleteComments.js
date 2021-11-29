@@ -18,7 +18,7 @@ const deleteComment = (comment) => {
 
     return (
         <div>
-            <button onClick={() => deleteComment(comment)}><i class="fas fa-trash-alt"> </i></button>
+            <button onClick={() => deleteComment(comment)}><i className="fas fa-trash-alt"> </i></button>
         </div>
     )
 }

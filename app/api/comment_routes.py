@@ -12,7 +12,7 @@ comment_routes = Blueprint('comments', __name__)
 
 # GET ALL COMMENTS
 @comment_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_comments():
     """
     Gets all comments
@@ -23,7 +23,7 @@ def get_comments():
 
 # GET COMMENT BY ID
 @comment_routes.route('/<int:id>', methods=['GET'])
-# @login_required
+@login_required
 def get_comment(id):
     """
     Gets a single comment
@@ -34,7 +34,7 @@ def get_comment(id):
 
 # ADD A COMMENT
 @comment_routes.route('/new/', methods=['POST'])
-# @login_required
+@login_required
 def create_comment():
     """
     Creates a comment
@@ -46,7 +46,8 @@ def create_comment():
         comment = Comment(
             body=form.data['body'],
             user_id=form.data['user_id'],
-            postId=form.data['postId']
+            postId=form.data['postId'],
+            userName=form.data['userName']
         )
         db.session.add(comment)
         db.session.commit()
@@ -55,7 +56,7 @@ def create_comment():
 
 #EDIT A COMMENT
 @comment_routes.route('/<int:id>/', methods=['PUT'])
-# @login_required
+@login_required
 def edit_comment(id):
     """
     Edits a comment
@@ -73,7 +74,7 @@ def edit_comment(id):
 
 # DELETE A COMMENT
 @comment_routes.route('/<int:id>/', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_comment(id):
     """
     Deletes a comment
