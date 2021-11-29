@@ -5,6 +5,7 @@ import { useHistory } from 'react-router'
 import { addPost } from '../../store/post'
 
 import './newPost.css'
+import Header from '../Header/Header'
 
 const NewPost = () => {
 const dispatch = useDispatch()
@@ -60,6 +61,7 @@ const handleSubmit = (e) => {
 
     return (
     <div className="inputBox">
+      <Header />
       <h1>Create A Post</h1>
       <form onSubmit={handleSubmit}>
       <ul className="errors">
