@@ -9,9 +9,17 @@ margin-top: 20px;
     float: right;
     margin-bottom: -20px;
     margin-top: -20px;
-    color: lightblue;
+    color: rgb(0, 120, 160);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
 }
 
 .submitComment:hover{
     color: rgb(0, 162, 255);
+}
+
+.errors{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }

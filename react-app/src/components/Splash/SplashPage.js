@@ -34,11 +34,15 @@ const SplashPage = () => {
       return <Redirect to='/feed' />;
     }
 
+
+
     const demoLogin = async () => {
-      setEmail('demo@aa.io');
-      setPassword('password');
+      const demoEmail = 'demo@aa.io'
+      const demoPassword = 'password'
+      setEmail(demoEmail);
+      setPassword(demoPassword);
       return dispatch(
-        sessionActions.login({email: 'demo@aa.io', password: 'password'})
+        login('demo@aa.io', 'password')
       );
     }
 
