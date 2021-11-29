@@ -52,7 +52,7 @@ const deleteAPost = (id) => {
                 <img src={post.photoUrl} alt="" key={post.id} />
 
                     <div className="postContent">
-                    <div className="likes"> <Likes posts={post} postId={post.id}/> </div>
+                    {/* <div className="likes"> <Likes posts={post} postId={post.id}/> </div> */}
                     <div className="postCaption">
                 <h3 className="caption"> {post.caption} </h3>
                     <div className="postBtn">

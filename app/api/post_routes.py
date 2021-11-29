@@ -50,6 +50,7 @@ def create_post():
         db.session.add(post)
         db.session.commit()
         return post.to_dict()
+
     return jsonify(form.errors), 400
 
 #EDIT A POST

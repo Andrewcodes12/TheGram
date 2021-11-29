@@ -14,6 +14,10 @@ const history = useHistory()
 const [photoUrl, setPhotoUrl] = useState('')
 const [caption, setCaption] = useState('')
 const [valErrors , setValErrors] = useState([])
+const [isImage, setIsImage] = useState(false)
+
+
+
 
 const sessionUser = useSelector(state => state.session.user);
 
@@ -23,6 +27,7 @@ const reset = () => {
 }
 
 
+
 const validatePost = () => {
   const errors = [];
   if (!photoUrl) {
@@ -30,9 +35,15 @@ const validatePost = () => {
   }
   if (caption.length === 0) {
     errors.push("Please provide a caption for your post");
-  } else if(!photoUrl.includes("https://") || photoUrl.length < 10) {
-    errors.push("Photo Url must include 'https://' followed by image link ");
   }
+
+  if (isImage === false) {
+    errors.push("Please provide a valid image URL for your post");
+  }
+  // } else if(!photoUrl.includes("https://") || photoUrl.length < 30) {
+  //   errors.push("Photo Url must include 'https://' followed by image link ");
+  // }
+
 
   setValErrors(errors);
   return errors;
@@ -85,6 +96,9 @@ const handleSubmit = (e) => {
         />
         <button type="submit">Submit</button>
       </form>
+        <img src={photoUrl} alt="post"  hidden={true} onLoad={() =>
+          setIsImage(true)
+        }/>
     </div>
     )
 }
