@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profileImage=db.Column( db.String, default='https://i.imgur.com/5t6f2uX.jpeg',nullable=False)
+    profileImage=db.Column( db.String, default='http://clipart-library.com/new_gallery/280-2806732_png-file-svg-default-profile-picture-png.png',nullable=False)
 
     # likes=db.relationship('Like',cascade = "all,delete", backref='user_like')
     # comment_user=db.relationship('Comment',cascade = "all,delete", backref='user_name')

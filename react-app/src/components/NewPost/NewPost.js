@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { addPost } from '../../store/post'
-import Header from '../Header/Header'
+
 
 import './newPost.css'
 
@@ -61,7 +61,6 @@ const handleSubmit = (e) => {
 
     return (
       <div className="inputBox">
-      <Header />
       <h1>Create A Post</h1>
       <form onSubmit={handleSubmit}>
       <ul className="errors">
