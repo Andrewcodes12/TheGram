@@ -31,9 +31,9 @@ const reset = () => {
 
 const validatePost = () => {
   const errors = [];
-  if (!photoUrl) {
-    errors.push("Please provide an image URL for your post.");
-  }
+  // if (!photoUrl) {
+  //   errors.push("Please provide an image URL for your post.");
+  // }
   if (caption.length === 0) {
     errors.push("Please provide a caption for your post");
   }
@@ -73,9 +73,10 @@ const handleSubmit = (e) => {
 
     return (
       <div className="inputBox">
-      <h1>Create A Post</h1>
+        <Header />
+      <h1 className="banner">Create A Post</h1>
       <form onSubmit={handleSubmit}>
-      <ul className="errors">
+      <ul className="errorsPost">
           {valErrors.map((valError) => (
             <li key={valError}>{valError}</li>
           ))}
@@ -94,7 +95,7 @@ const handleSubmit = (e) => {
           placeholder="Image URL"
           name="imageUrl"
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className='postSubmit'>Submit</button>
       </form>
         <img src={photoUrl} alt="post"  hidden={true} onLoad={() =>
           setIsImage(true)

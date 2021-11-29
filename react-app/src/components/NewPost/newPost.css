@@ -1,6 +1,15 @@
-form {
+/* form {
     display: flex;
     flex-direction: column;
+} */
+
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    margin-top: 75px;
 }
 
   /* div {
@@ -14,13 +23,6 @@ form {
   } */
 
 
-  .inputBox {
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    padding-top: 100px;
-  }
-
   /* button {
     height: 40px;
     width: 200px;
@@ -31,4 +33,28 @@ form {
 
   button:hover {
     cursor: pointer;
+  }
+
+  .postSubmit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-left: -40px;
+    font-family: cursive;
+  }
+
+  .postSubmit:hover{
+    cursor: pointer;
+    color: blue;
+  }
+
+  .banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-family: cursive;
+    margin-bottom: -25px;
+    margin-left: -75px;
   }

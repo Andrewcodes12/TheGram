@@ -6,9 +6,10 @@ margin-top: 20px;
 .submitComment{
     display: inline-flex;
     position: relative;
-    float: right;
+    float: center;
     margin-bottom: -20px;
     margin-top: -20px;
+
     color: rgb(0, 120, 160);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
