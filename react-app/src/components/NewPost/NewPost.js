@@ -6,6 +6,7 @@ import { addPost } from '../../store/post'
 
 
 import './newPost.css'
+import Header from '../Header/Header'
 
 const NewPost = () => {
 const dispatch = useDispatch()

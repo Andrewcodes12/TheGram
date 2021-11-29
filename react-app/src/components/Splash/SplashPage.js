@@ -55,6 +55,7 @@ const SplashPage = () => {
                 ))}
             </div>
             <h1 className="appName">The Gram</h1>
+            <h6 className="appTagline"> Its like Instagram, but with slightly less letters…</h6>
             <div className="emailInput">
                 <input
                 name='email'
