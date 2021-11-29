@@ -73,7 +73,7 @@ const handleSubmit = (e) => {
                 name="body"
             />
             <div>
-            <button type="submit" className="submitComment">Submit Comment</button>
+            <button type="submit" className="submitComment">Post</button>
             </div>
         </form>
         </div>
