@@ -14,6 +14,7 @@ import EditCaption from "../EditCaption/EditCaption";
 import EditComments from "../EditComments/EditComments";
 import DeleteComments from "../DeleteComments/DeleteComments";
 import Likes from "../Likes/Likes";
+import Like from "../AnimatedLikes";
 
 
 const Post = () => {
@@ -52,6 +53,9 @@ const deleteAPost = (id) => {
                 <img src={post.photoUrl} alt="" key={post.id} />
 
                     <div className="postContent">
+                        <div className="postLike">
+                        <Like likes={likes} postId={post.id} />
+                        </div>
                     {/* <div className="likes"> <Likes posts={post} postId={post.id}/> </div> */}
                     <div className="postCaption">
                 <h3 className="caption"> {post.caption} </h3>
