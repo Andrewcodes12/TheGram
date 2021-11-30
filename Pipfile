@@ -27,6 +27,8 @@ greenlet = "==1.1.0"
 Mako = "==1.1.4"
 psycopg2-binary = "==2.8.6"
 email-validator = "==1.1.0"
+dnspython = "==2.1.0"
+idna = "==3.3"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"
