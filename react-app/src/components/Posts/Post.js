@@ -80,7 +80,9 @@ const deleteAPost = (id) => {
                     <div key={comment.id} className="commentContainer">
                         <div className="comment">
                         {comment.postId === post.id && <div className="commentUser">{comment.userName} : </div>}
-                        {comment.postId === post.id && <div className="comments">{comment.body} </div>}
+                        {comment.postId === post.id && <div className="comments">{comment.body} <div className="commentLikes"> <Likes posts={comment} postId={comment.id}/> </div> </div> }
+
+
                         </div>
                         <div className="commentBtn">
                             <div className="commentEditBtn">

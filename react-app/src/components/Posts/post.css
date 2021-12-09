@@ -143,3 +143,12 @@ margin-top: -50px;
     margin-top: -35px;
     margin-left: -35px;
 }
+
+.commentLikes{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    float: right;
+    margin-left: 10px;
+    size: x-small;
+}
